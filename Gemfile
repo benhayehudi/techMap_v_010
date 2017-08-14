@@ -50,6 +50,5 @@ gem 'dotenv-rails'
 gem 'active_model_serializers'
 
 # Google custom search
-gem 'google-api-client', '~> 0.4.3', :require => 'google/api_client'
-gem 'jwt', '~> 0.1.4'
+gem "google_custom_search_api"
 gem 'openssl'
