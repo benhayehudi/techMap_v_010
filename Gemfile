@@ -45,3 +45,11 @@ gem 'foreman', '~> 0.82.0'
 
 # store secrets securely
 gem 'dotenv-rails'
+
+# render JSON
+gem 'active_model_serializers'
+
+# Google custom search
+gem 'google-api-client', '~> 0.4.3', :require => 'google/api_client'
+gem 'jwt', '~> 0.1.4'
+gem 'openssl'
