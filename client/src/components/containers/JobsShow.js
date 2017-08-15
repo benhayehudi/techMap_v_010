@@ -1,31 +1,13 @@
 import React from 'react';
 import fetch from 'isomorphic-fetch'
-import { createStore } from 'react';
 
-let alljobs =[];
-
-var myRequest = new Request('http://localhost:3001/api/jobs');
-
-alljobs = fetch(myRequest).then(function(response) {
-response.json()
-})
-
-class JobsShow extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      jobs: (alljobs)
-    }
-  }
-  render() {
-    return (
-      this.state.jobs.map((job, index) => {
-        <div>
-        <h3>{job.title}</h3>
-        </div>
-      })
-    )
-  }
-}
+const JobsShow = (props) => (
+  <div>
+    {props.jobs.map(job =>
+      <div className="job-listing">
+        <h3><a href={job.link}>{job.title}</a></h3>
+      </div>
+    )}
+  </div>
+);
 export default JobsShow;
