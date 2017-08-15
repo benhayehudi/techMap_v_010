@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormControl, FormGroup, ControlLabel, HelpBlock} from 'react-bootstrap';
+import {FormControl, FormGroup} from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 const SearchForm = ({name, placeholder, value, onChange}) => {
@@ -9,7 +9,8 @@ const SearchForm = ({name, placeholder, value, onChange}) => {
         <form>
           <FormGroup
           controlId="formBasicText">
-            <ControlLabel>Find A Job</ControlLabel>
+            <h3>Search For A Job:</h3>
+            <p id="form-helper-text"><em>(try something like "web developer jobs in Raleigh")</em></p>
               <FormControl
               type="text"
               value="{this.state.value}"
