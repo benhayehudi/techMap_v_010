@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import TextArea from './TextArea';
+import SearchForm from './containers/SearchForm';
 
 class Home extends Component {
   render() {
   return (
-    <TextArea />
+    <SearchForm />
   )
 }
 }

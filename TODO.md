@@ -1,6 +1,6 @@
 techMap():
 
-A React app to help jobseekers find tech jobs by querying Google with the Google search API with search terms supplied by user. The app displays the results and registered users can save a job to their profile.
+A React app to help jobseekers find tech jobs by querying Google with the Google search API with search terms supplied by user. The app displays latest results for a app specified search query on the main page and visitors can also execute their own searches with the search form.
 
 Todo:
 
@@ -12,11 +12,9 @@ Todo:
  -- reducers:
   --
 2. Build out Rails backend
- -- Two models: User & Job
- -- User has_many Jobs and a Job has_many Users
-  -- Join table user_jobs to connect them
- -- Controller renders users data as JSON
+ -- One model: Job
+ -- Controller renders jobs data from the Google API as JSON
 3. Build out React frontend
- -- "fetch" search results from Google
+ -- "fetch" search results from Google via the Rails backend
  -- render using JobsShow component
- -- If user saves to profile, send to Rails server to add to DB
+ -- Visitor submits a search query which fetches from the Google API with JobSeach component and renders to the view.

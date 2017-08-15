@@ -51,4 +51,4 @@ gem 'active_model_serializers'
 
 # Google custom search
 gem "google_custom_search_api"
-gem 'openssl'
+gem 'pry'

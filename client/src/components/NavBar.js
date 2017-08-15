@@ -1,14 +1,22 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import ReactDOM from 'react-dom';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'react-bootstrap';
 
-const NavBar = props => {
-  return (
-    <div className="Home">
-      <NavLink exact to="/" activeClassName="active">Home</NavLink>
-      <NavLink to="/login" activeClassName="active">Login</NavLink>
-      <NavLink to="/about" activeClassName="active">About</NavLink>
-    </div>
-  );
-}
 
-export default NavBar;
+const navbarInstance = (
+  <Navbar inverse collapseOnSelect>
+    <Navbar.Header>
+      <Navbar.Brand>
+        <a href="/">techMap()</a>
+      </Navbar.Brand>
+      <Navbar.Toggle />
+    </Navbar.Header>
+    <Navbar.Collapse>
+      <Nav>
+        <NavItem eventKey={1} href="/about">About</NavItem>
+        <NavItem eventKey={2} href="/contact">Contact</NavItem>
+      </Nav>
+    </Navbar.Collapse>
+  </Navbar>
+);
+export default navbarInstance;
