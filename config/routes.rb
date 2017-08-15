@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  get '/api/jobs/all' => 'jobs#index'
+  namespace :api do
+    resources :jobs, except: [:new, :create, :edit, :destroy, :update, :show]
+  end
 end

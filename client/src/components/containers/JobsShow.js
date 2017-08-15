@@ -4,7 +4,7 @@ import { createStore } from 'react';
 
 let alljobs =[];
 
-var myRequest = new Request('http://localhost:3001/api/jobs/all');
+var myRequest = new Request('http://localhost:3001/api/jobs');
 
 alljobs = fetch(myRequest).then(function(response) {
 response.json()
