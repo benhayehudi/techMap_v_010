@@ -29,7 +29,7 @@ class JobsShow extends React.Component {
 
       fetch(`/api/jobs/search/` + (params), request)
         .then(data => data.json())
-        .then(data => this.setState({ jobs: data.items }))
+        .then(data => this.setState({ jobs: data.items, loading: false }))
       }
 
     const renderJobCards = this.state.jobs.map((job, key) =>
@@ -39,6 +39,7 @@ class JobsShow extends React.Component {
 
       <div>
         <SearchForm searchForJobs={searchForJobs}/>
+        <h1>Job Listings:</h1>
         {renderJobCards}
     </div>
     );

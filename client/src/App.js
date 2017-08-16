@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
-  Route
+  Route, Switch
 } from 'react-router-dom'
 import Header from './components/Header'
 import About from './components/About';
 import Contact from './components/Contact';
 import navbarInstance from './components/NavBar';
-import SearchResults from './components/containers/SearchResults';
 import JobsShow from './components/containers/JobsShow';
 
 
@@ -16,10 +15,11 @@ import JobsShow from './components/containers/JobsShow';
 const ReactRouter = () => (
   <Router>
     <div className="Routes">
-      <Route exact path="/" component={JobsShow}/>
-      <Route path="/about" component={About}/>
-      <Route path="/contact" component={Contact}/>
-      <Route path="/searchresults" component={SearchResults}/>
+      <Switch>
+        <Route exact path="/" component={JobsShow}/>
+        <Route exact path="/about" component={About}/>
+        <Route exact path="/contact" component={Contact}/>
+      </Switch>
     </div>
   </Router>
 )
