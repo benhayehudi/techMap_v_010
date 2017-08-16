@@ -1,3 +1,5 @@
+require 'pry'
+
 class JobsController < ApplicationController
 
   def index
@@ -6,7 +8,9 @@ class JobsController < ApplicationController
   end
 
   def search
-    @results = GoogleCustomSearchApi.search(params[:input])
+    @input = params[:input]
+    @results = GoogleCustomSearchApi.search(@input)
+    binding.pry
     render :json => @results
   end
 end
