@@ -4,7 +4,7 @@
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  
+
 }
 
 .App-header {
@@ -12,6 +12,21 @@
   height: 250px;
   padding: 20px;
   color: white;
+}
+
+.footer {
+  background-color: #808080;
+  height: 40px;
+  padding: 10px;
+  color: #FFD700;
+}
+
+.footer a {
+  color: orange;
+}
+
+.heart {
+  color: red;
 }
 
 .App-intro {
