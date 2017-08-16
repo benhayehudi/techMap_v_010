@@ -1,9 +1,12 @@
-require 'pry'
 class JobsController < ApplicationController
 
   def index
-  #OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
-  @results = GoogleCustomSearchApi.search("tech jobs in new york city")
-  render :json => @results
+    @results = GoogleCustomSearchApi.search("tech jobs in nyc")
+    render :json => @results
+  end
+
+  def search
+    @results = GoogleCustomSearchApi.search(params[:input])
+    render :json => @results
   end
 end

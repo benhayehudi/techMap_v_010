@@ -10,7 +10,6 @@ import About from './components/About';
 import Contact from './components/Contact';
 import navbarInstance from './components/NavBar';
 import SearchForm from './components/containers/SearchForm';
-import JobsShow from './components/containers/JobsShow';
 import SearchResults from './components/containers/SearchResults';
 
 const ReactRouter = () => (

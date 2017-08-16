@@ -1,8 +1,8 @@
 import React from 'react';
-import fetch from 'isomorphic-fetch'
 
 const SearchResults = (props) => (
-  <div>
+  <div className="JobSearch">
+    <h1>Your Search Results:</h1>
     {props.jobs.map(job =>
       <div className={job.cacheId}>
         <h3><a href={job.link}>{job.title}</a></h3>
