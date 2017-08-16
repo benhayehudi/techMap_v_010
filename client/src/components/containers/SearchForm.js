@@ -4,10 +4,15 @@ import PropTypes from 'prop-types';
 
 const onSubmit = (event) => {
   event.preventDefault();
+  fetch('http://localhost:3001/api/jobs')
+    .then(response => response.json())
+    .then(jobs => this.setState({ jobs }))
+  window.push(`/searchresults`)
 }
 
 const onChange = (event) => {
   this.setState({
+    jobs: [],
     input: event.target.value
   })
 }

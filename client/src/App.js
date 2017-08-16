@@ -11,6 +11,7 @@ import Contact from './components/Contact';
 import navbarInstance from './components/NavBar';
 import SearchForm from './components/containers/SearchForm';
 import JobsShow from './components/containers/JobsShow';
+import SearchResults from './components/containers/SearchResults';
 
 const ReactRouter = () => (
   <Router>
@@ -18,6 +19,7 @@ const ReactRouter = () => (
       <Route exact path="/" component={Home}/>
       <Route path="/about" component={About}/>
       <Route path="/contact" component={Contact}/>
+      <Route path="/searchresults" component={SearchResults}/>
     </div>
   </Router>
 )
