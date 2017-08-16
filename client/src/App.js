@@ -4,7 +4,8 @@ import {
   BrowserRouter as Router,
   Route, Switch
 } from 'react-router-dom'
-import Header from './components/Header'
+import Header from './components/Header';
+import Footer from './components/Footer';
 import About from './components/About';
 import Contact from './components/Contact';
 import navbarInstance from './components/NavBar';
@@ -41,7 +42,7 @@ class App extends Component {
         <ReactRouter />
 
         <div className="footer">
-          Made with <span className="heart">&hearts;</span> by <a href="http://www.bengreenberg.org" target="_new">Ben Greenberg</a> &copy; 2017
+          { Footer }
         </div>
 
     </div>
