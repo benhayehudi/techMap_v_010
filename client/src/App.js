@@ -31,18 +31,21 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div>
+
+        <div className="App-header">
           { navbarInstance }
+
+          { Header }
         </div>
 
-        <div>
-          { Header }
-          <br /> <br />
-
+        <div className="SearchForm">
           < SearchForm />
-      </div>
-      <div>
-        <h1>Jobs:</h1>
+        </div>
+        
+        <br /><br />
+
+      <div className="Jobs">
+        <h1>Live Listings for NYC:</h1>
         <br/>
         {this.state.loading ?
           <h2>......</h2>

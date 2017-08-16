@@ -10,9 +10,9 @@ h1 {
   color: #FFD700;
 }
 
-h3 {
+.App-header h3 {
   font-family: 'Share Tech', sans-serif;
-  color: #4B0082;
+  color: #b19cd9;
 }
 
 #form-helper-text {

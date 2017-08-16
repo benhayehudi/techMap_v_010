@@ -9,7 +9,7 @@ const SearchForm = ({name, placeholder, value, onChange}) => {
         <form>
           <FormGroup
           controlId="formBasicText">
-            <h3>Search For A Job:</h3>
+            <h1>Search For A Job:</h1>
             <p id="form-helper-text"><em>(try something like "web developer jobs in Raleigh")</em></p>
               <FormControl
               type="text"
