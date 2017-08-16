@@ -19,10 +19,22 @@ class JobsShow extends React.Component {
       .then(response => response.json())
       .then(data => this.setState({ jobs: data.items, loading: false }))
   }
+
   render() {
 
-    const renderJobCards = this.state.jobs.map(job =>
-      <JobCard job={job} />
+    const searchForJobs = params => {
+      const request = {
+        method: 'post',
+        data: JSON.stringify(params)
+      };
+
+      fetch(`/api/jobs/search/` + (params), request)
+        .then(data => data.json())
+        .then(data => this.setState({ jobs: data.items }))
+      }
+
+    const renderJobCards = this.state.jobs.map((job, key) =>
+      <JobCard job={job} key={key} />
     )
     return (
 

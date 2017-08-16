@@ -1,6 +1,7 @@
 import React from 'react';
 import {FormControl, FormGroup} from 'react-bootstrap';
-import searchForJobs from './SearchForJobs';
+import JobsShow from './JobsShow';
+import JobCard from './JobCard';
 
 class SearchForm extends React.Component {
   constructor(props) {
@@ -11,12 +12,9 @@ class SearchForm extends React.Component {
       input: ''
     }
   }
-
   onSubmit = event => {
     event.preventDefault();
     this.props.searchForJobs(this.state.input)
-    this.setState({input: this.state.input})
-    debugger
   }
 
   onChange = (event) => {

@@ -9,7 +9,6 @@ class JobsController < ApplicationController
 
   def search
     @results = GoogleCustomSearchApi.search(params[:input])
-    binding.pry
     render :json => @results
   end
 end
