@@ -5,29 +5,25 @@ import {
   Route
 } from 'react-router-dom'
 import Header from './components/Header'
-import Home from './components/Home';
+import Home from './components/containers/Home';
 import About from './components/About';
 import Contact from './components/Contact';
 import navbarInstance from './components/NavBar';
 import SearchForm from './components/containers/SearchForm';
 import JobsShow from './components/containers/JobsShow';
 
+const ReactRouter = () => (
+  <Router>
+    <div className="Routes">
+      <Route exact path="/" component={Home}/>
+      <Route path="/about" component={About}/>
+      <Route path="/contact" component={Contact}/>
+    </div>
+  </Router>
+)
+
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      jobs: [],
-      loading: true
-    }
-  }
-
-  componentDidMount() {
-    fetch('http://localhost:3001/api/jobs')
-      .then(response => response.json())
-      .then(jobs => this.setState({ jobs, loading: false }))
-  }
   render() {
     return (
       <div className="App">
@@ -41,18 +37,11 @@ class App extends Component {
         <div className="SearchForm">
           < SearchForm />
         </div>
-        
+
         <br /><br />
 
-      <div className="Jobs">
-        <h1>Live Listings for NYC:</h1>
-        <br/>
-        {this.state.loading ?
-          <h2>......</h2>
-          :
-          <JobsShow jobs={this.state.jobs.items} />
-        }
-      </div>
+        <ReactRouter />
+
     </div>
     );
   }
