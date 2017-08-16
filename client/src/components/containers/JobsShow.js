@@ -1,7 +1,6 @@
 import React from 'react';
-import JobCard from './JobCard';
 import SearchForm from './SearchForm';
-import searchForJobs from './SearchForJobs';
+import JobCard from './JobCard';
 
 
 class JobsShow extends React.Component {

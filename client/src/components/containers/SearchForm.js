@@ -1,7 +1,5 @@
 import React from 'react';
 import {FormControl, FormGroup} from 'react-bootstrap';
-import JobsShow from './JobsShow';
-import JobCard from './JobCard';
 
 class SearchForm extends React.Component {
   constructor(props) {

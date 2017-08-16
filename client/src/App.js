@@ -5,13 +5,10 @@ import {
   Route
 } from 'react-router-dom'
 import Header from './components/Header'
-import Home from './components/containers/Home';
 import About from './components/About';
 import Contact from './components/Contact';
 import navbarInstance from './components/NavBar';
-import SearchForm from './components/containers/SearchForm';
 import SearchResults from './components/containers/SearchResults';
-import searchForJobs from './components/containers/SearchForJobs';
 import JobsShow from './components/containers/JobsShow';
 
 
