@@ -1,10 +1,10 @@
 const searchForJobs = params => {
   const request = {
     method: 'post',
-    // data: JSON.stringify(params)
+    data: JSON.stringify(params)
   };
 
-  fetch(`/api/jobs/search`, request)
+  fetch(`/api/jobs/search/` + (params), request)
     .then(data => console.log(data))
     .catch(err => console.log(err))
 }
