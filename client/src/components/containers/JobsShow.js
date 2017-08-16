@@ -1,13 +1,36 @@
 import React from 'react';
+import JobCard from './JobCard';
+import SearchForm from './SearchForm';
+import searchForJobs from './SearchForJobs';
 
-const JobsShow = (props) => (
-  <div>
-    {props.jobs.map(job =>
-      <div className={job.cacheId}>
-        <h3><a href={job.link}>{job.title}</a></h3>
-        <p>{job.snippet}</p>
-      </div>
-    )}
-  </div>
-);
+
+class JobsShow extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      jobs: [],
+      loading: true
+    }
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3001/api/jobs')
+      .then(response => response.json())
+      .then(data => this.setState({ jobs: data.items, loading: false }))
+  }
+  render() {
+
+    const renderJobCards = this.state.jobs.map(job =>
+      <JobCard job={job} />
+    )
+    return (
+
+      <div>
+        <SearchForm searchForJobs={searchForJobs}/>
+        {renderJobCards}
+    </div>
+    );
+  }
+}
 export default JobsShow;

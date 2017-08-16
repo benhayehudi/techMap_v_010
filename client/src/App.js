@@ -11,11 +11,15 @@ import Contact from './components/Contact';
 import navbarInstance from './components/NavBar';
 import SearchForm from './components/containers/SearchForm';
 import SearchResults from './components/containers/SearchResults';
+import searchForJobs from './components/containers/SearchForJobs';
+import JobsShow from './components/containers/JobsShow';
+
+
 
 const ReactRouter = () => (
   <Router>
     <div className="Routes">
-      <Route exact path="/" component={Home}/>
+      <Route exact path="/" component={JobsShow}/>
       <Route path="/about" component={About}/>
       <Route path="/contact" component={Contact}/>
       <Route path="/searchresults" component={SearchResults}/>
@@ -33,10 +37,6 @@ class App extends Component {
           { navbarInstance }
 
           { Header }
-        </div>
-
-        <div className="SearchForm">
-          < SearchForm />
         </div>
 
         <br /><br />

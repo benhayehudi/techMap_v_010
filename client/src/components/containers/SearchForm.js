@@ -1,34 +1,30 @@
 import React from 'react';
 import {FormControl, FormGroup} from 'react-bootstrap';
+import searchForJobs from './SearchForJobs';
 
 class SearchForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      jobs: [],
+      data: [],
       input: ''
     }
   }
 
-  onSubmit = (event) => {
+  onSubmit = event => {
     event.preventDefault();
-    fetch(`http://localhost:3001/api/jobs/search/` + this.state.input)
-      .then(response => response.json())
-      .then(jobs => this.setState({ jobs }))
-      .then(input => this.setState({ input }))
-      window.history.pushState('', '', '/searchresults');
+    this.props.searchForJobs(this.state.input);
   }
 
   onChange = (event) => {
     this.setState({
       input: event.target.value
     });
-    console.log(event.target.value)
-
   };
 
   render() {
+
   return (
     <div className="col-lg-12">
       <div className="offset-lg-4">
