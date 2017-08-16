@@ -32,8 +32,8 @@ class JobsShow extends React.Component {
         .then(data => this.setState({ jobs: data.items, loading: false }))
       }
 
-    const renderJobCards = this.state.jobs.map((job, key) =>
-      <JobCard job={job} key={key} />
+    const renderJobCards = this.state.jobs.map(job =>
+      <JobCard job={job} key={job.cacheId} />
     )
     return (
 
