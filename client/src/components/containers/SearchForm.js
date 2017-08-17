@@ -1,6 +1,7 @@
 import React from 'react';
 import {FormControl, FormGroup} from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { updateJobs } from '../../actions/SearchActions';
 
 class SearchForm extends React.Component {
@@ -14,7 +15,7 @@ class SearchForm extends React.Component {
   }
   onSubmit = event => {
     event.preventDefault();
-    this.updateJobs(this.state.input);
+    this.props.updateJobs(this.state.input);
     // this.props.searchForJobs(this.state.input)
   }
 
@@ -45,5 +46,10 @@ class SearchForm extends React.Component {
     );
   };
 }
-
-export default SearchForm;
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(
+    {
+      updateJobs
+    }, dispatch);
+  };
+  export default connect(null, mapDispatchToProps)(SearchForm);
