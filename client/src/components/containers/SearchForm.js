@@ -1,5 +1,7 @@
 import React from 'react';
 import {FormControl, FormGroup} from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { updateJobs } from '../../actions/SearchActions';
 
 class SearchForm extends React.Component {
   constructor(props) {
@@ -12,7 +14,8 @@ class SearchForm extends React.Component {
   }
   onSubmit = event => {
     event.preventDefault();
-    this.props.searchForJobs(this.state.input)
+    this.updateJobs(this.state.input);
+    // this.props.searchForJobs(this.state.input)
   }
 
   onChange = (event) => {
@@ -25,7 +28,7 @@ class SearchForm extends React.Component {
 
   return (
     <div className="col-lg-12">
-      <div className="offset-lg-4">
+      <div className="col-lg-offset-lg-4">
         <form onSubmit={(event) => this.onSubmit(event)}>
           <FormGroup
           controlId="formBasicText" onSubmit={(event) => this.onSubmit(event)}>
