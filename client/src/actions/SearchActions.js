@@ -4,6 +4,7 @@ import JobCard from '../components/containers/JobCard';
 import SearchForm from '../components/containers/SearchForm';
 
 export function updateJobs(userInput) {
+  console.log(userInput)
   return (dispatch => {
 
   const request = {
@@ -14,10 +15,12 @@ export function updateJobs(userInput) {
     dispatch({ type: 'START_UPDATING_JOBS'});
     fetch('/api/jobs/search/' + (userInput), request)
       .then(data => data.json())
-      .then(data => dispatch({ type: 'UPDATE_JOBS', payload: data.items }));
-    })
+      .then(data => dispatch({ type: 'UPDATE_JOBS', response: renderJobCards(data.items), data: data.items }))
+    }
+  )}
 
-  const renderJobCards = this.state.jobs.map(job =>
+  export function renderJobCards(data) {
+    data.map(job =>
     <JobCard job={job} key={job.cacheId} />
   )
   return (
@@ -26,5 +29,6 @@ export function updateJobs(userInput) {
       <h1>Job Listings:</h1>
       {renderJobCards}
     </div>
-  );
-}
+    );
+    this.forceUpdate();
+  }
