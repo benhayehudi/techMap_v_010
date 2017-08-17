@@ -30,5 +30,4 @@ export function updateJobs(userInput) {
       {renderJobCards}
     </div>
     );
-    this.forceUpdate();
   }

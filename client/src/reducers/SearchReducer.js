@@ -1,7 +1,7 @@
-function SearchReducer(state = { loading: false, jobs: [] }, action) {
+function SearchReducer(state = { jobs: [] }, action) {
   switch (action.type) {
     case 'UPDATE_JOBS':
-      return {loading: false, jobs: action.data}
+      return {jobs: action.data}
     default:
       return state;
   }
