@@ -49,7 +49,7 @@ class SearchForm extends React.Component {
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
-      updateJobs
+      updateJobs,
     }, dispatch);
   };
   export default connect(null, mapDispatchToProps)(SearchForm);
