@@ -1,5 +1,4 @@
 import React from 'react';
-import JobsShow from './JobsShow';
 
 const JobCard = (props) => (
   <div>

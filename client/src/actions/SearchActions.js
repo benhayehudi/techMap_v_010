@@ -1,5 +1,5 @@
 import React from 'react';
-// import SearchReducer from '../reducers/SearchReducer';
+import ReactDOM, { render } from 'react-dom';
 import JobCard from '../components/containers/JobCard';
 import SearchForm from '../components/containers/SearchForm';
 
@@ -15,14 +15,15 @@ export function updateJobs(userInput) {
     dispatch({ type: 'START_UPDATING_JOBS'});
     fetch('/api/jobs/search/' + (userInput), request)
       .then(data => data.json())
-      .then(data => dispatch({ type: 'UPDATE_JOBS', response: renderJobCards(data.items), data: data.items }))
+      .then(data => dispatch({ type: 'UPDATE_JOBS', data: data.items }))
     }
   )}
 
-  export function renderJobCards(data) {
-    data.map(job =>
+  export function renderJobCards(response) {
+    Object.keys(response).map(job =>
     <JobCard job={job} key={job.cacheId} />
   )
+
   return (
     <div>
       <SearchForm />

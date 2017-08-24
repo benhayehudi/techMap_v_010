@@ -16,7 +16,6 @@ class SearchForm extends React.Component {
   onSubmit = event => {
     event.preventDefault();
     this.props.updateJobs(this.state.input);
-    // this.props.searchForJobs(this.state.input)
   }
 
   onChange = (event) => {
