@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { updateJobs } from '../../actions/SearchActions';
 
+
 class SearchForm extends React.Component {
   constructor(props) {
     super(props);

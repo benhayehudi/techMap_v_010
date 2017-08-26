@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM, { render } from 'react-dom';
 import JobCard from '../components/containers/JobCard';
 import SearchForm from '../components/containers/SearchForm';
 
@@ -27,7 +26,7 @@ export function updateJobs(userInput) {
   return (
     <div>
       <SearchForm />
-      <h1>Job Listings:</h1>
+      <h1>Job HListings:</h1>
       {renderJobCards}
     </div>
     );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import SearchForm from './SearchForm';
 import JobCard from './JobCard';
 
@@ -21,7 +22,7 @@ class JobsShow extends React.Component {
 
   render() {
 
-    const renderJobCards = this.state.jobs.map(job =>
+    const renderJobCards = this.props.jobs.map(job =>
       <JobCard job={job} key={job.cacheId} />
     )
     return (
@@ -34,4 +35,10 @@ class JobsShow extends React.Component {
     );
   }
 }
-export default JobsShow;
+const mapStateToProps = (state) => {
+  return ({
+    jobs: state.jobs
+  })
+}
+
+export default connect(mapStateToProps)(JobsShow);
