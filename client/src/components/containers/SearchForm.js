@@ -11,7 +11,8 @@ class SearchForm extends React.Component {
 
     this.state = {
       jobs: [],
-      input: ''
+      input: '',
+      searchExecuted: false
     }
   }
   onSubmit = event => {
@@ -21,7 +22,7 @@ class SearchForm extends React.Component {
 
   onChange = (event) => {
     this.setState({
-      input: event.target.value
+      input: event.target.value,
     });
   };
 

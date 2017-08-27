@@ -6,20 +6,31 @@ import JobCard from './JobCard';
 class JobsShow extends React.Component {
   constructor(props) {
     super(props);
-    const jobs = this.props;
+
+    this.state = {
+      firstJobs: [],
+      loading: true
+    }
   }
 
   componentDidMount() {
     fetch('http://localhost:3001/api/jobs')
       .then(response => response.json())
-      .then(data => this.props.jobs.push(data.items))
+      .then(data => this.setState({ firstJobs: data.items }))
   }
 
   render() {
 
-    const renderJobCards = this.props.jobs.map(job =>
-      <JobCard job={job} key={job.cacheId} />
-    )
+    const renderJobCards =
+      this.props.searchExecuted ?
+      this.props.jobs.map(job =>
+        <JobCard job={job} key={job.cacheId} />
+      )
+      :
+      this.state.firstJobs.map(job =>
+        <JobCard job={job} key={job.cacheId} />
+      )
+
     return (
 
       <div>
@@ -30,9 +41,11 @@ class JobsShow extends React.Component {
     );
   }
 }
+
 const mapStateToProps = (state) => {
   return ({
-    jobs: state.jobs
+    jobs: state.jobs,
+    searchExecuted: state.searchExecuted
   })
 }
 
