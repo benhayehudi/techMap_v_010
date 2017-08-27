@@ -17,17 +17,3 @@ export function updateJobs(userInput) {
       .then(data => dispatch({ type: 'UPDATE_JOBS', data: data.items }))
     }
   )}
-
-  export function renderJobCards(response) {
-    Object.keys(response).map(job =>
-    <JobCard job={job} key={job.cacheId} />
-  )
-
-  return (
-    <div>
-      <SearchForm />
-      <h1>Job HListings:</h1>
-      {renderJobCards}
-    </div>
-    );
-  }

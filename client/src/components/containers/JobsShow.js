@@ -3,21 +3,16 @@ import { connect } from 'react-redux';
 import SearchForm from './SearchForm';
 import JobCard from './JobCard';
 
-
 class JobsShow extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      jobs: [],
-      loading: true
-    }
+    const jobs = this.props;
   }
 
   componentDidMount() {
     fetch('http://localhost:3001/api/jobs')
       .then(response => response.json())
-      .then(data => this.setState({ jobs: data.items, loading: false }))
+      .then(data => this.props.jobs.push(data.items))
   }
 
   render() {
