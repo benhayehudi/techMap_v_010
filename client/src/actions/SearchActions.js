@@ -1,7 +1,3 @@
-import React from 'react';
-import JobCard from '../components/containers/JobCard';
-import SearchForm from '../components/containers/SearchForm';
-
 export function updateJobs(userInput) {
   return (dispatch => {
 
