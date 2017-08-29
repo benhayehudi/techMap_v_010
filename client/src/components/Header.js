@@ -6,4 +6,5 @@ const header = (
     <h3><em>Find Your Career In Tech</em></h3>
   </div>
 );
+
 export default header;

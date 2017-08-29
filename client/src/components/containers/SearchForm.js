@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { updateJobs } from '../../actions/SearchActions';
 
-
 class SearchForm extends React.Component {
   constructor(props) {
     super(props);
@@ -15,6 +14,7 @@ class SearchForm extends React.Component {
       searchExecuted: false
     }
   }
+  
   onSubmit = event => {
     event.preventDefault();
     this.props.updateJobs(this.state.input);
@@ -47,10 +47,12 @@ class SearchForm extends React.Component {
     );
   };
 }
+
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
       updateJobs,
     }, dispatch);
-  };
-  export default connect(null, mapDispatchToProps)(SearchForm);
+};
+
+export default connect(null, mapDispatchToProps)(SearchForm);

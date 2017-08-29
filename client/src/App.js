@@ -11,8 +11,6 @@ import Contact from './components/Contact';
 import navbarInstance from './components/NavBar';
 import JobsShow from './components/containers/JobsShow';
 
-
-
 const ReactRouter = () => (
   <Router>
     <div className="Routes">
@@ -25,28 +23,22 @@ const ReactRouter = () => (
   </Router>
 )
 
-
 class App extends Component {
   render() {
     return (
       <div className="App">
-
         <div className="App-header">
           { navbarInstance }
-
           { Header }
         </div>
-
         <br /><br />
-
         <ReactRouter />
-
         <div className="footer">
           { Footer }
         </div>
-
     </div>
     );
   }
 }
+
 export default App;

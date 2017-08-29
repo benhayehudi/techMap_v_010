@@ -27,4 +27,5 @@ const navbarInstance = (
     </Navbar>
   </BrowserRouter>
 );
+
 export default navbarInstance;

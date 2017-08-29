@@ -21,18 +21,15 @@ class JobsShow extends React.Component {
 
   render() {
 
-    const renderJobCards =
-      this.props.searchExecuted ?
+  const renderJobCards =
+    this.props.searchExecuted ?
       this.props.jobs.map(job =>
-        <JobCard job={job} key={job.cacheId} />
-      )
+        <JobCard job={job} key={job.cacheId} />)
       :
       this.state.firstJobs.map(job =>
-        <JobCard job={job} key={job.cacheId} />
-      )
+        <JobCard job={job} key={job.cacheId} />)
 
     return (
-
       <div>
         <SearchForm />
         <h1>Job Listings:</h1>

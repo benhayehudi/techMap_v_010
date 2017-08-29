@@ -8,4 +8,5 @@ const JobCard = ({ job }) => (
     </div>
   </div>
 );
+
 export default JobCard;
