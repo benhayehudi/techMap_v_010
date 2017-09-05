@@ -14,7 +14,7 @@ class SearchForm extends React.Component {
       searchExecuted: false
     }
   }
-  
+
   onSubmit = event => {
     event.preventDefault();
     this.props.updateJobs(this.state.input);
@@ -50,9 +50,8 @@ class SearchForm extends React.Component {
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
-    {
-      updateJobs,
-    }, dispatch);
+    {updateJobs}, dispatch
+  );
 };
 
 export default connect(null, mapDispatchToProps)(SearchForm);
