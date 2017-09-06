@@ -17,12 +17,14 @@ export function addJob(cacheId, title, link, snippet) {
   return (dispatch => {
     const request = {
       method: 'post',
-      data: JSON.stringify(cacheId, title, link, snippet)
+      cacheId: cacheId,
+      title: title,
+      link: link,
+      snippet: snippet
     };
-
     dispatch({ type: 'ADD_JOB' });
-    fetch('/api/jobs/new/', + (cacheId), request)
+    fetch('/api/jobs/new/', request)
       .then(data => data.json())
-      .then(data => console.log(data))
+      .then(data => dispatch({ type: 'ADD_JOB' }))
   }
 )}

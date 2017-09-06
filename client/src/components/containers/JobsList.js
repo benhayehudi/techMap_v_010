@@ -4,11 +4,24 @@ import SearchForm from './SearchForm';
 import JobListCard from './JobListCard';
 
 class JobsList extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      savedJobs: []
+    }
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3001/api/jobslist')
+      .then(response => response.json())
+      .then(data => this.setState({ savedJobs: data.items }))
+    }
 
   render() {
 
   const renderJobListCards =
-      this.props.jobs.map(job =>
+      this.state.savedJobs.map(job =>
         <JobListCard job={job} key={job.cacheId} />)
 
     return (
@@ -21,10 +34,4 @@ class JobsList extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return ({
-    jobs: state.jobs
-  })
-}
-
-export default connect(mapStateToProps)(JobsList);
+export default JobsList;
