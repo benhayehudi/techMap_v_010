@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170814210036) do
+ActiveRecord::Schema.define(version: 20170906174215) do
+
+  create_table "joblikes", force: :cascade do |t|
+    t.integer "jobId"
+    t.integer "likeCounter", default: 0
+  end
 
   create_table "jobs", force: :cascade do |t|
     t.datetime "created_at", null: false
