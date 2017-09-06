@@ -13,7 +13,7 @@ export function updateLikes(counter) {
   }
 )}
 
-export function showLikes() {
+export function showLikes(jobId) {
   return (dispatch => {
 
     const request = {
@@ -29,7 +29,7 @@ export function showLikes() {
     }
 
     dispatch({ type: 'GET_LIKES'});
-    fetch('/api/jobs/likes' + (this.props.job.cacheId), request)
+    fetch('/api/jobs/likes/' + (jobId), request)
       .then(data => data.json())
       .then(response => dispatch(setInitialLikes(response)))
   }

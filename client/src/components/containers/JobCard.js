@@ -19,7 +19,7 @@ class JobCard extends React.Component {
   }
 
   componentDidMount() {
-    this.props.showLikes();
+    this.props.showLikes(this.props.job.cacheId);
   }
 
   render() {
@@ -42,4 +42,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps)(JobCard);
+export default connect(mapStateToProps, { showLikes })(JobCard);
