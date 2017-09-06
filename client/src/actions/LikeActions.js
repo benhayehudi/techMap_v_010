@@ -21,9 +21,16 @@ export function showLikes() {
       data: JSON.stringify
     };
 
+    const setInitialLikes = likes => {
+      return {
+        type: 'GET_LIKES',
+          likes
+      }
+    }
+
     dispatch({ type: 'GET_LIKES'});
     fetch('/api/jobs/likes' + (this.props.job.cacheId), request)
       .then(data => data.json())
-      .then(response => dispatch({ type: 'GET_LIKES', counter: response.likes }))
+      .then(response => dispatch(setInitialLikes(response)))
   }
 )}
