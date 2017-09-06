@@ -8,7 +8,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import About from './components/About';
 import Contact from './components/Contact';
-import navbarInstance from './components/NavBar';
+import NavbarInstance from './components/NavBar';
 import JobsShow from './components/containers/JobsShow';
 import JobsList from './components/containers/JobsList';
 
@@ -16,8 +16,10 @@ import JobsList from './components/containers/JobsList';
 const ReactRouter = () => (
   <Router>
     <div className="Routes">
-      {navbarInstance}
-      {Header}
+      <div className="App-header">
+        <NavbarInstance/>
+        {Header}
+      </div>
       <Switch>
         <Route exact path="/" component={JobsShow}/>
         <Route exact path="/jobslist" component={JobsList}/>
@@ -32,7 +34,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
         <br /><br />
         < ReactRouter />
         <div className="footer">

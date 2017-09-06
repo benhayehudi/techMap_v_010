@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SearchForm from './SearchForm';
 import JobCard from './JobCard';
-import { Link } from 'react-router-dom'
 
 class JobsShow extends React.Component {
   constructor(props) {
@@ -32,7 +31,6 @@ class JobsShow extends React.Component {
     return (
       <div>
         <SearchForm />
-        <Link to="/about">About</Link>
         <h1>Job Listings:</h1>
         {renderJobCards}
     </div>

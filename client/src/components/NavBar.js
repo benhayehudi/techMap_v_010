@@ -16,12 +16,14 @@ const NavbarInstance = () => (
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav>
-        <LinkContainer to="/about" onClick={ e => this.props.history.push("/about") }>
-          <NavItem eventKey={2}>About</NavItem>
+        <LinkContainer to="/jobslist" onClick={ e => this.props.history.push("/jobslist") }>
+          <NavItem eventKey={2}>Saved Jobs</NavItem>
         </LinkContainer>
-        <Link to="/about">About</Link>
+        <LinkContainer to="/about" onClick={ e => this.props.history.push("/about") }>
+          <NavItem eventKey={3}>About</NavItem>
+        </LinkContainer>
         <LinkContainer to="/contact" onClick={ e => this.props.history.push("/contact") }>
-          <NavItem eventKey={3}>Contact</NavItem>
+          <NavItem eventKey={4}>Contact</NavItem>
         </LinkContainer>
         </Nav>
       </Navbar.Collapse>
