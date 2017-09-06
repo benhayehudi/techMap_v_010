@@ -8,7 +8,10 @@ class JobsController < ApplicationController
   end
 
   def create
-
+    @job = Job.new(job_params)
+    if @job.save
+      render :json => @job
+    end
   end
 
   def show
@@ -25,13 +28,13 @@ class JobsController < ApplicationController
   end
 
   def list
-    @results = Jobs.all
+    @results = Job.all
     render :json => @results
   end
 
   private
 
   def job_params
-    params.permit(:jobId, :likeCounter)
+    params.permit(:cacheId, :title, :link, :snippet, :likes)
   end
 end

@@ -17,10 +17,10 @@ function SearchReducer(state = initialState, action) {
       })
     case 'ADD_JOB':
       return Object.assign({}, state, {
-        title: action.title,
-        snippet: action.snippet,
-        link: action.link,
-        cacheId: action.cacheId
+        title: action.data,
+        snippet: action.data,
+        link: action.data,
+        cacheId: action.data
       })
     default:
       return state;

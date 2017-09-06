@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   post '/api/jobs/search/:input' => 'jobs#search'
 
   get '/api/list' => 'jobs#list'
-  post '/api/jobs/new/:jobId' => 'jobs#create'
+  post '/api/jobs/new/:cacheId' => 'jobs#create'
   post '/api/jobs/:jobId' => 'jobs#update'
 end

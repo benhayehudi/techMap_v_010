@@ -6,12 +6,6 @@ import { Link } from 'react-router-dom'
 
 class JobsList extends React.Component {
 
-  componentDidMount() {
-    fetch('http://localhost:3001/api/jobs')
-      .then(response => response.json())
-      .then(data => this.setState({ firstJobs: data.items }))
-  }
-
   render() {
 
   const renderJobListCards =

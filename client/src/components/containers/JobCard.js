@@ -24,7 +24,7 @@ class JobCard extends React.Component {
       <h3><a href={this.props.job.link}>{this.props.job.title}</a></h3>
       <p>{this.props.job.snippet}</p>
       <br />
-      <button onClick={this.onClick}>Add To List</button>
+      <button onClick={this.onClick} data-cacheId={this.props.job.cacheId} data-link={this.props.job.link} data-title={this.props.job.title} data-snippet={this.props.job.snippet}>Add To List</button>
     </div>
   </div>
     );
@@ -33,7 +33,8 @@ class JobCard extends React.Component {
 
 const mapStateToProps = (state) => {
   return ({
-    counter: state.counter
+    counter: state.counter,
+    addJob: state.addJob
   })
 }
 
