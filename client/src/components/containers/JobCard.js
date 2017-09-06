@@ -8,19 +8,20 @@ class JobCard extends React.Component {
   super(props)
 
   this.state = {
+    title: '',
+    link: '',
+    snippet: '',
+    cacheId: '',
     currentJob: '',
     }
   }
 
   onClick = event => {
-    const { title, link, snippet, cacheId } = event.target;
-    const currentJobData = Object.assign({}, this.props.job, {
-      [title]: this.dataset.title,
-      [link]: this.dataset.link,
-      [snippet]: this.dataset.snippet,
-      [cacheId]: this.dataset.cacheId
-    })
-    this.props.addJob(currentJobData);
+    var cacheId = this.props.job.cacheId
+    var link = this.props.job.link
+    var title = this.props.job.title
+    var snippet = this.props.job.snippet
+    this.props.addJob(cacheId, link, title, snippet);
   }
 
   render() {

@@ -14,7 +14,6 @@ export function updateJobs(userInput) {
 )}
 
 export function addJob(cacheId, title, link, snippet) {
-
   return (dispatch => {
     const request = {
       method: 'post',
@@ -22,7 +21,7 @@ export function addJob(cacheId, title, link, snippet) {
     };
 
     dispatch({ type: 'ADD_JOB' });
-    fetch('/api/jobs/new/' + (cacheId), request)
+    fetch('/api/jobs/new/', + (cacheId), request)
       .then(data => data.json())
       .then(data => console.log(data))
   }
