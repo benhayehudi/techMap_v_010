@@ -8,8 +8,7 @@ class JobsShow extends React.Component {
     super(props);
 
     this.state = {
-      firstJobs: [],
-      loading: true
+      firstJobs: []
     }
   }
 
