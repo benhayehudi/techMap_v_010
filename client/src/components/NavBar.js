@@ -1,9 +1,9 @@
 import React from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import { BrowserRouter} from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
 
-const navbarInstance = (
+const NavbarInstance = () => (
   <BrowserRouter>
     <Navbar inverse collapseOnSelect>
       <Navbar.Header>
@@ -19,6 +19,7 @@ const navbarInstance = (
         <LinkContainer to="/about" onClick={ e => this.props.history.push("/about") }>
           <NavItem eventKey={2}>About</NavItem>
         </LinkContainer>
+        <Link to="/about">About</Link>
         <LinkContainer to="/contact" onClick={ e => this.props.history.push("/contact") }>
           <NavItem eventKey={3}>Contact</NavItem>
         </LinkContainer>
@@ -28,4 +29,4 @@ const navbarInstance = (
   </BrowserRouter>
 );
 
-export default navbarInstance;
+export default NavbarInstance;

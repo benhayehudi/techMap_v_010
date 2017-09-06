@@ -14,6 +14,8 @@ import JobsShow from './components/containers/JobsShow';
 const ReactRouter = () => (
   <Router>
     <div className="Routes">
+      {navbarInstance}
+      {Header}
       <Switch>
         <Route exact path="/" component={JobsShow}/>
         <Route exact path="/about" component={About}/>
@@ -27,10 +29,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          { navbarInstance }
-          { Header }
-        </div>
+
         <br /><br />
         <ReactRouter />
         <div className="footer">

@@ -6,7 +6,7 @@ export function updateJobs(userInput) {
     data: JSON.stringify(userInput)
   };
 
-  dispatch({ type: 'START_UPDATING_JOBS'});
+  dispatch({ type: 'START_UPDATING_JOBS'}); //build out loading or remove
   fetch('/api/jobs/search/' + (userInput), request)
     .then(data => data.json())
     .then(data => dispatch({ type: 'UPDATE_JOBS', data: data.items }))
