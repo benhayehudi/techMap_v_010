@@ -1,13 +1,13 @@
-export function updateLikes(counter) {
+export function updateLikes(jobId) {
   return (dispatch => {
 
   const request = {
     method: 'post',
-    data: JSON.stringify(counter)
+    data: JSON.stringify(jobId)
   };
 
   dispatch({ type: 'UPDATE_LIKES'}); //build out loading or remove
-  fetch('/api/jobs/likes/' + (this.props.counter), request)
+  fetch('/api/jobs/likes/' + (jobId), request)
     .then(data => data.json())
     .then(response => dispatch({ type: 'UPDATE_LIKES', counter: response.likes }))
   }
