@@ -1,3 +1,3 @@
 class JobSerializer < ActiveModel::Serializer
-  attributes :id, :title, :content, :uri
+  attributes :title, :snippet, :link, :likes, :cacheId
 end

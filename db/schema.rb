@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170906174215) do
-
-  create_table "joblikes", force: :cascade do |t|
-    t.integer "jobId"
-    t.integer "likeCounter", default: 0
-  end
+ActiveRecord::Schema.define(version: 20170906182037) do
 
   create_table "jobs", force: :cascade do |t|
+    t.string "title"
+    t.string "snippet"
+    t.string "link"
+    t.integer "likes", default: 0
+    t.string "cacheId"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

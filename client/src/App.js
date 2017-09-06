@@ -10,6 +10,8 @@ import About from './components/About';
 import Contact from './components/Contact';
 import navbarInstance from './components/NavBar';
 import JobsShow from './components/containers/JobsShow';
+import JobsList from './components/containers/JobsList';
+
 
 const ReactRouter = () => (
   <Router>
@@ -18,6 +20,7 @@ const ReactRouter = () => (
       {Header}
       <Switch>
         <Route exact path="/" component={JobsShow}/>
+        <Route exact path="/jobslist" component={JobsList}/>
         <Route exact path="/about" component={About}/>
         <Route exact path="/contact" component={Contact}/>
       </Switch>

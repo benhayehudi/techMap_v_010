@@ -1,2 +1,0 @@
-class Joblikes < ApplicationRecord
-end

@@ -3,22 +3,20 @@ import { connect } from 'react-redux';
 import { updateLikes, showLikes } from '../../actions/LikeActions';
 
 
-class JobCard extends React.Component {
+class JobListCard extends React.Component {
   constructor(props) {
   super(props)
 
   this.state = {
-    currentJob: '',
-    counter: ''
+    counter: 0
     }
   }
 
   onClick = () => {
     this.setState({
-      currentJob: this.props.job.cacheId,
       counter: this.state.counter + 1
     });
-    this.props.updateLikes(this.state.currentJob, this.state.counter);
+    this.props.updateLikes(this.props.job.cacheId);
   }
 
   componentDidMount() {
@@ -32,7 +30,7 @@ class JobCard extends React.Component {
       <h3><a href={this.props.job.link}>{this.props.job.title}</a></h3>
       <p>{this.props.job.snippet}</p>
       <br />
-      <button onClick={this.onClick}>Add To List</button>{this.state.counter}
+      <button onClick={this.onClick}>Like</button>{this.state.counter}
     </div>
   </div>
     );
@@ -45,4 +43,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps, { showLikes, updateLikes })(JobCard);
+export default connect(mapStateToProps, { showLikes, updateLikes })(JobListCard);
