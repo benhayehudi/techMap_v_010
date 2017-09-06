@@ -9,7 +9,7 @@ export function updateLikes(jobId) {
   dispatch({ type: 'UPDATE_LIKES'}); //build out loading or remove
   fetch('/api/jobs/likes/' + (jobId), request)
     .then(data => data.json())
-    .then(response => dispatch({ type: 'UPDATE_LIKES', counter: response.likes }))
+    .then(response => dispatch({ type: 'UPDATE_LIKES', counter: response.counter }))
   }
 )}
 

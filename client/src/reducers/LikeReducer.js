@@ -7,8 +7,7 @@ function LikeReducer(state = initialState, action) {
   switch (action.type) {
     case 'UPDATE_LIKES':
       return Object.assign({}, state, {
-        jobs: action.data,
-        searchExecuted: true
+        counter: action.response + 1
       })
 
     case 'GET_LIKES':
