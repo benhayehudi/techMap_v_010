@@ -13,9 +13,9 @@ class JobsList extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001/api/jobslist')
+    fetch('http://localhost:3001/api/jobs/list')
       .then(response => response.json())
-      .then(data => this.setState({ savedJobs: data.items }))
+      .then(data => this.setState({ savedJobs: data }))
     }
 
   render() {

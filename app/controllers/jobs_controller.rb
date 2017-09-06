@@ -28,8 +28,8 @@ class JobsController < ApplicationController
   end
 
   def list
-    @results = Job.all
-    render :json => @results
+    @jobs = Job.all
+    render :json => @jobs
   end
 
   private
