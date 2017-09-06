@@ -16,12 +16,7 @@ function SearchReducer(state = initialState, action) {
         searchExecuted: true
       })
     case 'ADD_JOB':
-      return Object.assign({}, state, {
-        title: action.data,
-        snippet: action.data,
-        link: action.data,
-        cacheId: action.data
-      })
+      return state.concat(action.job)
     default:
       return state;
   }

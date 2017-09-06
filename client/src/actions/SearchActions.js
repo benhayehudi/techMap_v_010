@@ -24,6 +24,6 @@ export function addJob(cacheId, title, link, snippet) {
     dispatch({ type: 'ADD_JOB' });
     fetch('/api/jobs/new/' + (cacheId), request)
       .then(data => data.json())
-      .then(data => dispatch({ type: 'ADD_JOB', title: data.title, link: data.link, snippet: data.snippet, cacheId: data.cacheId }))
+      .then(data => console.log(data))
   }
 )}
