@@ -8,7 +8,7 @@ class JobsController < ApplicationController
   end
 
   def create
-    
+
   end
 
   def show
@@ -21,6 +21,11 @@ class JobsController < ApplicationController
 
   def search
     @results = GoogleCustomSearchApi.search(params[:input])
+    render :json => @results
+  end
+
+  def list
+    @results = Jobs.all
     render :json => @results
   end
 

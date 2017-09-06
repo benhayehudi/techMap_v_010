@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateLikes, showLikes } from '../../actions/LikeActions';
+import { addJob } from '../../actions/SearchActions';
 
 
 class JobCard extends React.Component {
@@ -14,15 +14,7 @@ class JobCard extends React.Component {
   }
 
   onClick = () => {
-    this.setState({
-      currentJob: this.props.job.cacheId,
-      counter: this.state.counter + 1
-    });
-    this.props.updateLikes(this.state.currentJob, this.state.counter);
-  }
-
-  componentDidMount() {
-    this.props.showLikes(this.props.job.cacheId);
+    this.props.addJob(this.props.job.cacheId, this.props.job.link, this.props.job.title, this.props.job.snippet);
   }
 
   render() {
@@ -32,7 +24,7 @@ class JobCard extends React.Component {
       <h3><a href={this.props.job.link}>{this.props.job.title}</a></h3>
       <p>{this.props.job.snippet}</p>
       <br />
-      <button onClick={this.onClick}>Add To List</button>{this.state.counter}
+      <button onClick={this.onClick}>Add To List</button>
     </div>
   </div>
     );
@@ -45,4 +37,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps, { showLikes, updateLikes })(JobCard);
+export default connect(mapStateToProps, { addJob })(JobCard);

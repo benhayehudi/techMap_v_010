@@ -34,7 +34,7 @@ class App extends Component {
       <div className="App">
 
         <br /><br />
-        <ReactRouter />
+        < ReactRouter />
         <div className="footer">
           { Footer }
         </div>
