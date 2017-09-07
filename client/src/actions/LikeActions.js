@@ -13,6 +13,21 @@ export function addLike(likeData, cacheId) {
   dispatch({ type: 'ADD_LIKE'});
   fetch('/api/jobs/' + (cacheId), request)
     .then(data => data.json())
-    .then(response => dispatch({ type: 'ADD_LIKE', counter: response }))
+    .then(data => dispatch({ type: 'ADD_LIKE', data: data.likes }))
+  }
+)}
+
+export function getLikes(cacheId) {
+  return (dispatch => {
+
+  const request = {
+    method: 'get',
+    data: JSON.stringify(cacheId)
+  };
+
+  dispatch({ type: 'GET_LIKES'});
+  fetch('/api/jobs/' + (cacheId), request)
+    .then(data => data.json())
+    .then(data => dispatch({ type: 'GET_LIKES', data: data.likes }))
   }
 )}

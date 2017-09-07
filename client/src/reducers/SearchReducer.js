@@ -3,7 +3,6 @@ let initialState = {
   snippet: '',
   link: '',
   cacheId: '',
-  likes: 0,
   jobs: [],
   savedJobs: [],
   searchExecuted: false

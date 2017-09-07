@@ -15,7 +15,7 @@ class JobsController < ApplicationController
   end
 
   def show
-    @job = Job.find_by(cacheId: params[:jobId])
+    @job = Job.find_by(cacheId: params[:cacheId])
     render :json => @job
   end
 
