@@ -1,34 +1,32 @@
 import React from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import { BrowserRouter, Link } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
-const NavbarInstance = () => (
-  <BrowserRouter>
-    <Navbar inverse collapseOnSelect>
-      <Navbar.Header>
-        <Navbar.Brand>
-          <LinkContainer to="/" onClick={ e => this.props.history.push("/") }>
-            <NavItem eventKey={1}>techMap()</NavItem>
-          </LinkContainer>
-        </Navbar.Brand>
-        <Navbar.Toggle />
-      </Navbar.Header>
-      <Navbar.Collapse>
-        <Nav>
-        <LinkContainer to="/jobslist" onClick={ e => this.props.history.push("/jobslist") }>
+const navbarInstance = (
+  <Navbar inverse collapseOnSelect>
+    <Navbar.Header>
+      <Navbar.Brand>
+        <LinkContainer to="/">
+          <NavItem eventKey={1}>techMap()</NavItem>
+        </LinkContainer>
+      </Navbar.Brand>
+      <Navbar.Toggle />
+    </Navbar.Header>
+    <Navbar.Collapse>
+      <Nav>
+        <LinkContainer to="/jobslist">
           <NavItem eventKey={2}>Saved Jobs</NavItem>
         </LinkContainer>
-        <LinkContainer to="/about" onClick={ e => this.props.history.push("/about") }>
-          <NavItem eventKey={3}>About</NavItem>
+        <LinkContainer to="/about">
+          <NavItem eventKey={2}>About</NavItem>
         </LinkContainer>
-        <LinkContainer to="/contact" onClick={ e => this.props.history.push("/contact") }>
-          <NavItem eventKey={4}>Contact</NavItem>
+        <LinkContainer to="/contact">
+          <NavItem eventKey={3}>Contact</NavItem>
         </LinkContainer>
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
-  </BrowserRouter>
+      </Nav>
+    </Navbar.Collapse>
+  </Navbar>
 );
 
-export default NavbarInstance;
+export default navbarInstance;

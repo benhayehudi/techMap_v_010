@@ -18,6 +18,7 @@ class JobListCard extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     return (
   <div>
     <div className={this.props.job.cacheId}>
@@ -31,16 +32,10 @@ class JobListCard extends React.Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators(
-    {addLike, getLikes}, dispatch
-  );
-};
-
 const mapStateToProps = (state) => {
   return ({
-    counter: state.counter
+    counter: state.LikeReducer.counter
   })
 }
 
-export default connect(mapStateToProps, { getLikes, addLike }, mapDispatchToProps)(JobListCard);
+export default connect(mapStateToProps, { getLikes, addLike })(JobListCard);

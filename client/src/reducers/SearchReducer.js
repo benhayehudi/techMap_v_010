@@ -4,7 +4,7 @@ let initialState = {
   link: '',
   cacheId: '',
   jobs: [],
-  savedJobs: [{title: "some data", link: "some link", snippet: "Some snippet", cacheId: "djjdkew4", likes: 2}],
+  savedJobs: [],
   finishedLoading: false,
   searchExecuted: false
 }

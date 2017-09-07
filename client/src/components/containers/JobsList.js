@@ -11,9 +11,9 @@ class JobsList extends React.Component {
   }
 
   render() {
-    console.log(this.props.savedJobs)
+
   const renderJobListCards =
-      this.props.finishedLoading ?
+      this.props.savedJobs.length !== 0 ?
         this.props.savedJobs.map(job =>
           <JobListCard job={job} key={job.cacheId} />)
       :
@@ -28,8 +28,9 @@ class JobsList extends React.Component {
   }
 }
 const mapStateToProps = (state) => {
+  //console.log(state)
   return ({
-    savedJobs: state.savedJobs,
+    savedJobs: state.SearchReducer.savedJobs,
     finishedLoading: state.finishedLoading
   })
 }
