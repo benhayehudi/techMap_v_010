@@ -21,7 +21,8 @@ class JobCard extends React.Component {
     var link = this.props.job.link
     var title = this.props.job.title
     var snippet = this.props.job.snippet
-    this.props.addJob(this.props.job);
+    var jobData = {cacheId, link, title, snippet}
+    this.props.addJob(jobData);
   }
 
   render() {

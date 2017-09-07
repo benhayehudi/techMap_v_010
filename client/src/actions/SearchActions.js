@@ -13,18 +13,20 @@ export function updateJobs(userInput) {
   }
 )}
 
-export function addJob(cacheId) {
+export function addJob(jobData) {
+  debugger;
   return (dispatch => {
     const request = {
       method: 'post',
-      cacheId: cacheId,
-      title: this.props.job.title,
-      link: this.props.job.link,
-      snippet: this.props.job.snippet
+      headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(jobData)
     };
     dispatch({ type: 'ADD_JOB' });
     fetch('/api/jobs/new/', request)
       .then(data => data.json())
-      .then(data => dispatch({ type: 'ADD_JOB' }))
+      .then(data => dispatch({ type: 'ADD_JOB', data: data }))
   }
 )}

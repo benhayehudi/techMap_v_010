@@ -30,7 +30,7 @@ class JobListCard extends React.Component {
       <h3><a href={this.props.job.link}>{this.props.job.title}</a></h3>
       <p>{this.props.job.snippet}</p>
       <br />
-      <button onClick={this.onClick}>Like</button>{this.state.counter}
+      <button className="btn btn-primary" onClick={this.onClick}>Like</button>{this.state.counter}
     </div>
   </div>
     );
