@@ -1,8 +1,4 @@
 let initialState = {
-  title: '',
-  snippet: '',
-  link: '',
-  cacheId: '',
   jobs: [],
   savedJobs: [],
   finishedLoading: false,
@@ -18,10 +14,6 @@ function SearchReducer(state = initialState, action) {
       })
     case 'ADD_JOB':
       return Object.assign({}, state, {
-        title: action.data,
-        snippet: action.data,
-        link: action.data,
-        cacheId: action.data,
         searchExecuted: true
       })
     case 'GET_SAVED_JOBS':
