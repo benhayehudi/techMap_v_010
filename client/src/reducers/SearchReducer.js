@@ -4,7 +4,8 @@ let initialState = {
   link: '',
   cacheId: '',
   jobs: [],
-  savedJobs: [],
+  savedJobs: [{title: "some data", link: "some link", snippet: "Some snippet", cacheId: "djjdkew4", likes: 2}],
+  finishedLoading: false,
   searchExecuted: false
 }
 
@@ -25,7 +26,8 @@ function SearchReducer(state = initialState, action) {
       })
     case 'GET_SAVED_JOBS':
       return Object.assign({}, state, {
-        savedJobs: action.data
+        savedJobs: action.data,
+        finishedLoading: true
       })
     default:
       return state;

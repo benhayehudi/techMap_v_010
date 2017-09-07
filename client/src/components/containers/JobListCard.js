@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { getLikes, addLike } from '../../actions/LikeActions';
 
 class JobListCard extends React.Component {
@@ -23,12 +24,18 @@ class JobListCard extends React.Component {
       <h3><a href={this.props.job.link}>{this.props.job.title}</a></h3>
       <p>{this.props.job.snippet}</p>
       <br />
-      <button className="btn btn-primary" onClick={this.onClick}>Like</button>{this.props.counter}
+      <button className="btn btn-primary" onClick={this.onClick}>Like</button>{this.props.job.likes}
     </div>
   </div>
     );
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(
+    {addLike, getLikes}, dispatch
+  );
+};
 
 const mapStateToProps = (state) => {
   return ({
@@ -36,4 +43,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps, { getLikes, addLike })(JobListCard);
+export default connect(mapStateToProps, { getLikes, addLike }, mapDispatchToProps)(JobListCard);

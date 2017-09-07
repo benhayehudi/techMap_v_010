@@ -2,28 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SearchForm from './SearchForm';
 import JobListCard from './JobListCard';
+import { getSavedJobs } from '../../actions/SearchActions';
 
 class JobsList extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      savedJobs: []
-    }
-  }
 
   componentDidMount() {
-    fetch('http://localhost:3001/api/jobs/list')
-      .then(response => response.json())
-      .then(data => this.setState({ savedJobs: data }))
-    }
+    this.props.getSavedJobs();
+  }
 
   render() {
-
+    console.log(this.props.savedJobs)
   const renderJobListCards =
-      this.state.savedJobs.map(job =>
-        <JobListCard job={job} key={job.cacheId} />)
-
+      this.props.finishedLoading ?
+        this.props.savedJobs.map(job =>
+          <JobListCard job={job} key={job.cacheId} />)
+      :
+        "Loading..."
     return (
       <div>
         <SearchForm />
@@ -33,5 +27,11 @@ class JobsList extends React.Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return ({
+    savedJobs: state.savedJobs,
+    finishedLoading: state.finishedLoading
+  })
+}
 
-export default JobsList;
+export default connect(mapStateToProps, { getSavedJobs } )(JobsList);
