@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateLikes, showLikes } from '../../actions/LikeActions';
+import { addLike } from '../../actions/LikeActions';
 
 
 class JobListCard extends React.Component {
@@ -8,19 +8,15 @@ class JobListCard extends React.Component {
   super(props)
 
   this.state = {
-    counter: 0
+    counter: this.props.job.likes
     }
   }
 
   onClick = () => {
-    this.setState({
-      counter: this.state.counter + 1
-    });
-    this.props.updateLikes(this.props.job.cacheId);
-  }
-
-  componentDidMount() {
-    this.props.showLikes(this.props.job.cacheId);
+    var likes = this.props.job.likes + 1
+    var cacheId = this.props.job.cacheId
+    var likeData = {cacheId, likes}
+    this.props.addLike(likeData, cacheId);
   }
 
   render() {
@@ -30,7 +26,7 @@ class JobListCard extends React.Component {
       <h3><a href={this.props.job.link}>{this.props.job.title}</a></h3>
       <p>{this.props.job.snippet}</p>
       <br />
-      <button className="btn btn-primary" onClick={this.onClick}>Like</button>{this.state.counter}
+      <button className="btn btn-primary" onClick={this.onClick}>Like</button>{this.props.job.likes}
     </div>
   </div>
     );
@@ -43,4 +39,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps, { showLikes, updateLikes })(JobListCard);
+export default connect(mapStateToProps, { addLike })(JobListCard);

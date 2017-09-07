@@ -14,7 +14,6 @@ export function updateJobs(userInput) {
 )}
 
 export function addJob(jobData) {
-  debugger;
   return (dispatch => {
     const request = {
       method: 'post',

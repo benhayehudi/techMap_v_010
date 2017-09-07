@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   get '/api/jobs/list' => 'jobs#list'
   post '/api/jobs/new' => 'jobs#create'
-  post '/api/jobs/:jobId' => 'jobs#update'
+  get '/api/jobs/:cacheId' => 'jobs#show'
+  post '/api/jobs/:cacheId' => 'jobs#update'
 end

@@ -15,11 +15,15 @@ class JobsController < ApplicationController
   end
 
   def show
+    @job = Job.find_by(cacheId: params[:jobId])
     render :json => @job
   end
 
   def update
-
+    @job = Job.find_by(cacheId: params[:cacheId])
+    @job.update(likes: params[:likes])
+    @job.save
+    render :json => @job
   end
 
   def search
