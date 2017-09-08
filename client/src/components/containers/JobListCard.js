@@ -1,20 +1,41 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { getLikes, addLike } from '../../actions/LikeActions';
 
 class JobListCard extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.setState({
+      counter: ''
+    })
+  }
 
   onClick = () => {
-    var likes = this.props.counter + 1
     var cacheId = this.props.job.cacheId
+    var likes = this.props.job.likes++
     var likeData = {cacheId, likes}
-    this.props.addLike(likeData, cacheId);
+    const request = {
+      method: 'post',
+      headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(likeData)
+    };
+
+    fetch('/api/jobs/' + (cacheId), request)
+      .then(data => data.json())
+      .then(data => this.setState({ counter: data.likes }))
   }
 
   componentDidMount() {
-    var cacheId = this.props.job.cacheId
-    this.props.getLikes(cacheId);
+    const request = {
+      method: 'get',
+      data: JSON.stringify(this.props.job.cacheId)
+    };
+
+    fetch('/api/jobs/' + (this.props.job.cacheId), request)
+      .then(data => data.json())
+      .then(data => this.setState({ counter: data.likes }))
   }
 
   render() {
@@ -25,7 +46,7 @@ class JobListCard extends React.Component {
       <h3><a href={this.props.job.link}>{this.props.job.title}</a></h3>
       <p>{this.props.job.snippet}</p>
       <br />
-      <button className="btn btn-primary" onClick={this.onClick}>Like</button>{this.props.counter}
+      <button className="btn btn-primary" onClick={this.onClick}>Like</button>{this.props.job.likes}
     </div>
     <br />
   </div>
@@ -33,10 +54,4 @@ class JobListCard extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return ({
-    counter: state.LikeReducer.counter
-  })
-}
-
-export default connect(mapStateToProps, { getLikes, addLike })(JobListCard);
+export default JobListCard;
