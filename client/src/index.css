@@ -15,6 +15,11 @@ h1 {
   color: #b19cd9;
 }
 
+.JobCard:hover {
+  border-style: ridge;
+  box-shadow: 10px 10px 5px #888888;
+}
+
 #form-helper-text {
   font-family: 'Share Tech', sans-serif;
   color: #4B0082;
