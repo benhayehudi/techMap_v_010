@@ -27,7 +27,7 @@ class JobCard extends React.Component {
 
   render() {
     return (
-  <div className="JobCard">
+  <div className="JobCardBox">
     <div className={this.props.job.cacheId}>
       <h3><a href={this.props.job.link}>{this.props.job.title}</a></h3>
       <button className="btn btn-primary" onClick={() => this.onClick()} data-cacheId={this.props.job.cacheId} data-link={this.props.job.link} data-title={this.props.job.title} data-snippet={this.props.job.snippet}>Save</button>

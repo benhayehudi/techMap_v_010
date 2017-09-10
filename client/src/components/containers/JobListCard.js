@@ -41,7 +41,7 @@ class JobListCard extends React.Component {
   render() {
     console.log(this.props)
     return (
-  <div className="JobCard">
+  <div className="JobCardBox">
     <div className={this.props.job.cacheId}>
       <h3><a href={this.props.job.link}>{this.props.job.title}</a></h3>
       <p>{this.props.job.snippet}</p>

@@ -21,7 +21,7 @@ class JobsShow extends React.Component {
   render() {
 
   const renderJobCards =
-    this.props.searchExecuted ?
+    this.props.jobs ?
       this.props.jobs.map(job =>
         <JobCard job={job} key={job.cacheId} />)
       :

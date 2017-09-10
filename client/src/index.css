@@ -15,7 +15,7 @@ h1 {
   color: #b19cd9;
 }
 
-.JobCard:hover {
+.JobCardBox:hover {
   border-style: ridge;
   box-shadow: 10px 10px 5px #888888;
 }
