@@ -29,7 +29,7 @@ class JobsList extends React.Component {
 }
 const mapStateToProps = (state) => {
   return ({
-    savedJobs: state.SearchReducer.savedJobs,
+    savedJobs: state.savedJobs,
     finishedLoading: state.finishedLoading
   })
 }
