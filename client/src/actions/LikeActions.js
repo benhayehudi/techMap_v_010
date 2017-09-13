@@ -10,10 +10,9 @@ export function addLike(likeData, cacheId) {
     body: JSON.stringify(likeData)
   };
 
-  dispatch({ type: 'ADD_LIKE'});
   fetch('/api/jobs/' + (cacheId), request)
     .then(data => data.json())
-    .then(data => dispatch({ type: 'ADD_LIKE', data: data.likes }))
+    .then(data => dispatch({ type: 'ADD_LIKE', data: data }))
   }
 )}
 

@@ -11,10 +11,18 @@ class JobsList extends React.Component {
   }
 
   render() {
-
+    console.log(this.props.savedJobs)
+    var sortedJobs = this.props.savedJobs ?
+       this.props.savedJobs.sort(function(job1, job2) {
+        return job2.likes - job1.likes
+      })
+      :
+      null
+    // console.log(sortedJobs)
   const renderJobListCards =
-      this.props.savedJobs.length !== 0 ?
-        this.props.savedJobs.map(job =>
+      this.props.savedJobs ?
+        sortedJobs.map(job =>
+
           <JobListCard job={job} key={job.cacheId} />)
       :
         "Loading..."

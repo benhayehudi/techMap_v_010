@@ -21,6 +21,19 @@ function SearchReducer(state = initialState, action) {
         savedJobs: action.data,
         finishedLoading: true
       })
+    case 'ADD_LIKE':
+
+      var newJobsState = state.savedJobs.map(job => {
+        if (job.cacheId === action.data.cacheId) {
+          return action.data
+        } else {
+          return job
+        }
+      })
+      console.log(newJobsState)
+      return Object.assign({}, state, {
+        savedJobs: newJobsState
+      });
     default:
       return state;
   }

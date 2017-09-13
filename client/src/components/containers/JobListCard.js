@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addLike } from '../../actions/LikeActions';
 
 class JobListCard extends React.Component {
   constructor(props) {
@@ -11,20 +13,10 @@ class JobListCard extends React.Component {
 
   onClick = () => {
     var cacheId = this.props.job.cacheId
-    var likes = this.props.job.likes++
+    var likes = this.props.job.likes + 1
     var likeData = {cacheId, likes}
-    const request = {
-      method: 'post',
-      headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(likeData)
-    };
 
-    fetch('/api/jobs/' + (cacheId), request)
-      .then(data => data.json())
-      .then(data => this.setState({ counter: data.likes }))
+    this.props.addLike(likeData, cacheId);
   }
 
   componentDidMount() {
@@ -34,12 +26,18 @@ class JobListCard extends React.Component {
     };
 
     fetch('/api/jobs/' + (this.props.job.cacheId), request)
-      .then(data => data.json())
-      .then(data => this.setState({ counter: data.likes }))
+      .then(data => {
+
+        return data.json()
+      })
+      .then(data => {
+        console.log(data)
+        this.setState({ counter: data.likes })
+      })
   }
 
   render() {
-    console.log(this.props)
+
     return (
   <div className="JobCardBox">
     <div className={this.props.job.cacheId}>
@@ -54,4 +52,5 @@ class JobListCard extends React.Component {
   }
 }
 
-export default JobListCard;
+
+export default connect(null, { addLike })(JobListCard);
