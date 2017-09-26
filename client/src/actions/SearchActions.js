@@ -32,7 +32,14 @@ export function addJob(jobData) {
 
 export function getSavedJobs() {
   return (dispatch => {
-    fetch('http://localhost:3001/api/jobs/list')
+    const request = {
+      method: 'get',
+      headers: {
+        'Content-Type': 'application/json',
+        'AUTHORIZATION': `Bearer ${sessionStorage.jwt}`
+      }
+    };
+    fetch('http://localhost:3001/api/jobs/list', request)
       .then(response => response.json())
       .then(data => dispatch({ type: 'GET_SAVED_JOBS', data: data }))
     }

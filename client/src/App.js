@@ -25,13 +25,7 @@ const ReactRouter = () => (
         <Route exact path="/" component={JobsShow}/>
         <Route exact path="/login" component={LogInPage}/>
         <Route exact path="/registrations/new" component={SignUpPage}/>
-        <Route exact path="/jobslist" render={() => (
-          (!sessionStorage.jwt) ? (
-            <Redirect to="/login"/>
-          ) : (
-            {JobsList}
-          )
-        )}/>
+        <Route exact path="/jobslist" component={JobsList}/>
         <Route exact path="/about" component={About}/>
         <Route exact path="/contact" component={Contact}/>
       </Switch>

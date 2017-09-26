@@ -23,7 +23,7 @@ module Knock
     end
 
     def auth_params
-      params.require(:auth).permit Knock.handle_attr, :password
+      params.require(:user).permit Knock.handle_attr, :password
     end
 
   end
