@@ -55,6 +55,9 @@ class LogInPage extends React.Component {
         <input type="submit"
           className="btn btn-primary"
           onClick={this.onSave}/>
+
+        <br /><br />
+        <h1>New?</h1> <h3><a href="/registrations/new">Sign up!</a></h3>
     </div>
     );
   }

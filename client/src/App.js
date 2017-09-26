@@ -11,6 +11,7 @@ import Contact from './components/Contact';
 import NavbarInstance from './components/NavBar';
 import JobsShow from './components/containers/JobsShow';
 import JobsList from './components/containers/JobsList';
+import LogInPage from './components/containers/LogInPage';
 
 
 const ReactRouter = () => (
@@ -22,6 +23,7 @@ const ReactRouter = () => (
       </div>
       <Switch>
         <Route exact path="/" component={JobsShow}/>
+        <Route exact path="/login" component={LogInPage}/>
         <Route exact path="/jobslist" component={JobsList}/>
         <Route exact path="/about" component={About}/>
         <Route exact path="/contact" component={Contact}/>

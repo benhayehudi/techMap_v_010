@@ -14,6 +14,9 @@ const navbarInstance = (
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav>
+        <LinkContainer to="/login">
+          <NavItem eventKey={2}>Login</NavItem>
+        </LinkContainer>
         <LinkContainer to="/jobslist">
           <NavItem eventKey={2}>Saved Jobs</NavItem>
         </LinkContainer>

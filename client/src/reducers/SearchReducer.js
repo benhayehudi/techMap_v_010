@@ -1,5 +1,4 @@
 import {browserHistory} from 'react-router';
-import * as types from '../actions/actionTypes';
 
 let initialState = {
   jobs: [],
@@ -36,7 +35,7 @@ function SearchReducer(state = initialState, action) {
       return Object.assign({}, state, {
         savedJobs: newJobsState
       });
-    case types.LOG_IN_SUCCESS:
+    case 'LOG_IN_SUCCESS':
       browserHistory.push('/')
       return !!sessionStorage.jwt
     default:

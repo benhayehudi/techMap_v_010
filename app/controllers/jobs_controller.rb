@@ -1,6 +1,7 @@
 require 'pry'
 
 class JobsController < ApplicationController
+  skip_before_action :authenticate
 
   def index
     @results = GoogleCustomSearchApi.search("tech jobs in nyc")
