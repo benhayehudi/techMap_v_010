@@ -12,6 +12,7 @@ import NavbarInstance from './components/NavBar';
 import JobsShow from './components/containers/JobsShow';
 import JobsList from './components/containers/JobsList';
 import LogInPage from './components/containers/LogInPage';
+import SignUpPage from './components/containers/SignUpPage';
 
 const ReactRouter = () => (
   <Router>
@@ -23,6 +24,7 @@ const ReactRouter = () => (
       <Switch>
         <Route exact path="/" component={JobsShow}/>
         <Route exact path="/login" component={LogInPage}/>
+        <Route exact path="/registrations/new" component={SignUpPage}/>
         <Route exact path="/jobslist" render={() => (
           (!sessionStorage.jwt) ? (
             <Redirect to="/login"/>

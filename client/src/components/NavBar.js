@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
@@ -79,11 +79,20 @@ class navbarInstance extends React.Component {
   }
 }
 
+navbarInstance.propTypes = {
+  actions: PropTypes.object.isRequired
+}
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return ({
     logged_in: state.session
   })
 }
 
-export default connect(mapStateToProps)(navbarInstance);
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(sessionActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(navbarInstance);

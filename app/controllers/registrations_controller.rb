@@ -9,11 +9,9 @@ class RegistrationsController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      render json: {status: 'User created successfully'}, status: :created
     else
-      flash[:alert] = "signup failed. please try again."
-      redirect_to '/registrations/new'
+      render json: { errors: user.errors.full_messages }, status: :bad_request
     end
   end
 
