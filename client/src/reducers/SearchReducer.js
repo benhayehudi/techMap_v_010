@@ -38,6 +38,9 @@ function SearchReducer(state = initialState, action) {
     case 'LOG_IN_SUCCESS':
       browserHistory.push('/jobslist')
       return !!sessionStorage.jwt
+    case 'LOG_OUT':
+      browserHistory.push('/')
+      return !!sessionStorage.jwt
     default:
       return state;
   }
