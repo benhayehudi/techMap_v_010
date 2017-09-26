@@ -14,3 +14,14 @@ export function logInUser(credentials) {
     });
   };
 }
+
+export function createNewUser(credentials) {
+  return function(dispatch) {
+    return sessionApi.newUser(credentials).then(response => {
+      sessionStorage.setItem('jwt', response.jwt);
+      dispatch(logInSuccess());
+    }).catch(error => {
+      throw(error);
+    });
+  };
+}

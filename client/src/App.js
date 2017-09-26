@@ -17,7 +17,7 @@ const ReactRouter = () => (
   <Router>
     <div className="Routes">
       <div className="App-header">
-        {NavbarInstance}
+        <NavbarInstance/>
         {Header}
       </div>
       <Switch>

@@ -36,7 +36,7 @@ function SearchReducer(state = initialState, action) {
         savedJobs: newJobsState
       });
     case 'LOG_IN_SUCCESS':
-      browserHistory.push('/')
+      browserHistory.push('/jobslist')
       return !!sessionStorage.jwt
     default:
       return state;
