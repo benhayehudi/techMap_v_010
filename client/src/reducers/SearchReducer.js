@@ -1,8 +1,12 @@
+import {browserHistory} from 'react-router';
+import * as types from '../actions/actionTypes';
+
 let initialState = {
   jobs: [],
   savedJobs: [],
   finishedLoading: false,
-  searchExecuted: false
+  searchExecuted: false,
+  session: !!sessionStorage.jwt
 }
 
 function SearchReducer(state = initialState, action) {
@@ -22,7 +26,6 @@ function SearchReducer(state = initialState, action) {
         finishedLoading: true
       })
     case 'ADD_LIKE':
-
       var newJobsState = state.savedJobs.map(job => {
         if (job.cacheId === action.data.cacheId) {
           return action.data
@@ -30,10 +33,12 @@ function SearchReducer(state = initialState, action) {
           return job
         }
       })
-      console.log(newJobsState)
       return Object.assign({}, state, {
         savedJobs: newJobsState
       });
+    case types.LOG_IN_SUCCESS:
+      browserHistory.push('/')
+      return !!sessionStorage.jwt
     default:
       return state;
   }
