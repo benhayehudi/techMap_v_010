@@ -1,7 +1,7 @@
 require 'pry'
 
 class JobsController < ApplicationController
-  skip_before_action :authenticate
+  skip_before_action :authenticate, except: [:list]
 
   def index
     @results = GoogleCustomSearchApi.search("tech jobs in nyc")

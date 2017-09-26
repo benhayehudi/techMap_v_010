@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
-  Route, Switch
+  Route, Switch, Redirect
 } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -12,7 +12,6 @@ import NavbarInstance from './components/NavBar';
 import JobsShow from './components/containers/JobsShow';
 import JobsList from './components/containers/JobsList';
 import LogInPage from './components/containers/LogInPage';
-
 
 const ReactRouter = () => (
   <Router>
@@ -24,7 +23,13 @@ const ReactRouter = () => (
       <Switch>
         <Route exact path="/" component={JobsShow}/>
         <Route exact path="/login" component={LogInPage}/>
-        <Route exact path="/jobslist" component={JobsList}/>
+        <Route exact path="/jobslist" render={() => (
+          (!sessionStorage.jwt) ? (
+            <Redirect to="/login"/>
+          ) : (
+            {JobsList}
+          )
+        )}/>
         <Route exact path="/about" component={About}/>
         <Route exact path="/contact" component={Contact}/>
       </Switch>
