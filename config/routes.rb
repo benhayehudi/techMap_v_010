@@ -6,4 +6,16 @@ Rails.application.routes.draw do
   post '/api/jobs/new' => 'jobs#create'
   get '/api/jobs/:cacheId' => 'jobs#show'
   post '/api/jobs/:cacheId' => 'jobs#update'
+
+  resources :users
+  mount Knock::Engine => "/knock"
+  post 'auth_token' => 'auth_token#create'
+
+  resources :registrations, only: [:new, :create]
+  post '/registrations/new' => 'registrations#create'
+  get '/logout' => 'sessions#destroy'
+
+  resources :sessions, only: [:new, :create, :destroy]
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
 end

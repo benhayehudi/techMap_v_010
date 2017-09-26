@@ -52,3 +52,9 @@ gem 'active_model_serializers'
 # Google custom search
 gem "google_custom_search_api"
 gem 'pry'
+
+# Bcrypt for password encryption
+gem 'bcrypt'
+
+# Knock gem for JWT authentication
+gem 'knock'
