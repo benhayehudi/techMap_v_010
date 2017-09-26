@@ -1,9 +1,21 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import * as sessionActions from '../actions/SessionActions';
 
 class navbarInstance extends React.Component {
+  constructor(props) {
+    super();
+    this.logOut = this.logOut.bind(this);
+  }
+
+  logOut(event) {
+    event.preventDefault();
+    this.props.actions.logOutUser();
+  }
+
   render() {
     if (this.props.logged_in) {
       return (
@@ -18,7 +30,7 @@ class navbarInstance extends React.Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <LinkContainer to="/logout">
+            <LinkContainer to="/logout" onClick={this.logOut}>
               <NavItem eventKey={2}>Logout</NavItem>
             </LinkContainer>
             <LinkContainer to="/jobslist">
