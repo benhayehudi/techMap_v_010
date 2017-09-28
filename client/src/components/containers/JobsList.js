@@ -11,13 +11,13 @@ class JobsList extends React.Component {
         }
 
         render() {
-            var sortedJobs = this.props.savedJobs && this.props.logged_in ?
+            var sortedJobs = this.props.logged_in && this.props.savedJobs ?
                 this.props.savedJobs.sort(function(job1, job2) {
                     return job2.likes - job1.likes
                 }) :
                 null
             const renderJobListCards =
-                this.props.savedJobs && this.props.logged_in ?
+                this.props.logged_in && this.props.savedJobs ?
                 sortedJobs.map(job =>
                     <
                     JobListCard job = { job }
