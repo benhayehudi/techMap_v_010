@@ -34,7 +34,7 @@ class JobsController < ApplicationController
 
   def list
     @jobs = Job.all
-      render :json => @jobs
+    render :json => @jobs
   end
 
   private
