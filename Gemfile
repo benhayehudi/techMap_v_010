@@ -13,7 +13,10 @@ gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.5'
+gem 'jbuilder', '~> 2.5'
+# Create JWT tokens
+gem 'jwt', '~>1.5.6'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -58,3 +61,5 @@ gem 'bcrypt'
 
 # Knock gem for JWT authentication
 gem 'knock'
+
+gem 'simple_command'

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  post 'user_token' => 'user_token#create'
+  post 'user_token' => 'sessions_controller#create'
   get '/api/jobs' => 'jobs#index'
   post '/api/jobs/search/:input' => 'jobs#search'
 
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :users
   mount Knock::Engine => "/knock"
-  post '/knock/auth_token' => 'auth_token#create'
+  post '/knock/auth_token' => 'auth_token#login'
 
   resources :registrations, only: [:new, :create]
   post '/registrations/new' => 'registrations#create'

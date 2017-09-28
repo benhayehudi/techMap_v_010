@@ -1,7 +1,7 @@
 require 'pry'
 
 class JobsController < ApplicationController
-  before_action :authenticate, only: [:list]
+  before_action :authenticate_request, only: [:list]
 
   def index
     @results = GoogleCustomSearchApi.search("tech jobs in nyc")
