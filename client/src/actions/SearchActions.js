@@ -33,9 +33,8 @@ export function addJob(jobData) {
 export function getSavedJobs() {
   return (dispatch => {
     const request = {
-      method: 'get',
+      method: 'GET',
       headers: {
-        'Content-Type': 'application/json',
         'AUTHORIZATION': `Bearer ${sessionStorage.jwt}`
       }
     };
