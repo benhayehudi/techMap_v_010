@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  post 'user_token' => 'sessions_controller#create'
+  post 'user_token' => 'sessions#create'
   get '/api/jobs' => 'jobs#index'
   post '/api/jobs/search/:input' => 'jobs#search'
 

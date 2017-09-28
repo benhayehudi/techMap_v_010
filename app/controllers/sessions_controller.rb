@@ -6,9 +6,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    command = AuthenticateUser.call(params[:email], params[:password]) 
+    command = AuthenticateUser.call(params[:auth][:email], params[:auth][:password]) 
     if command.success? 
-      render json: { auth_token: command.result } 
+      render json: { jwt: command.result } 
     else 
       render json: { error: command.errors }, status: :unauthorized 
     end 
