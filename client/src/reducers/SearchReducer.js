@@ -22,7 +22,8 @@ function SearchReducer(state = initialState, action) {
         case 'GET_SAVED_JOBS':
             return Object.assign({}, state, {
                 savedJobs: action.data,
-                finishedLoading: true
+                finishedLoading: true,
+                session: true
             })
         case 'ADD_LIKE':
             var newJobsState = state.savedJobs.map(job => {

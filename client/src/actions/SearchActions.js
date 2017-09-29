@@ -35,7 +35,7 @@ export function getSavedJobs() {
         const request = {
             method: 'GET',
             headers: {
-                'AUTHORIZATION': `Bearer ${sessionStorage.jwt}`
+                'Authorization': `${sessionStorage.jwt}`
             }
         };
         fetch('http://localhost:3001/api/jobs/list', request)
