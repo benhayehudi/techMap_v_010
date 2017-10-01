@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import TextInput from '../TextInput';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
+import {Redirect} from 'react-router-dom';
 import * as sessionActions from '../../actions/SessionActions';
 
 class LogInPage extends React.Component {
@@ -11,7 +12,8 @@ class LogInPage extends React.Component {
     this.state = {
       credentials: {
         email: '',
-        password: ''
+        password: '',
+        redirect: false
       }
     }
     this.onChange = this.onChange.bind(this);
@@ -28,6 +30,7 @@ class LogInPage extends React.Component {
   onSave(event) {
     event.preventDefault();
     this.props.actions.logInUser(this.state.credentials);
+    this.setState({redirect: true})
   }
 
   componentDidMount() {
@@ -38,6 +41,7 @@ class LogInPage extends React.Component {
 
     return (
       <div>
+        {this.state.redirect ? <Redirect to="/user/listings" /> : null}
         <h1>Login:</h1>
         <TextInput
           name="email"
@@ -57,7 +61,7 @@ class LogInPage extends React.Component {
           onClick={this.onSave}/>
 
         <br /><br />
-        <h1>New?</h1> <h3><a href="/registrations/new">Sign up!</a></h3>
+        <h1>New?</h1> <h1><a href="/registrations/new">Sign up!</a></h1>
     </div>
     );
   }

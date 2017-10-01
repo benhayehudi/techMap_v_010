@@ -1,5 +1,3 @@
-require 'pry'
-
 class JobsController < ApplicationController
   before_action :authenticate_request, only: [:list]
 

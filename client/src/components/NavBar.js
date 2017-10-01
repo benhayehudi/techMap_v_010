@@ -52,7 +52,6 @@ class navbarInstance extends React.Component {
           </Navbar>
             )
         } else {
-            console.log("where did it go?")
             return (
               <Navbar inverse collapseOnSelect>
                 <Navbar.Header>
