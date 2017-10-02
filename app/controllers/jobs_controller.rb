@@ -1,3 +1,5 @@
+require 'pry'
+
 class JobsController < ApplicationController
   before_action :authenticate_request, only: [:list]
 
@@ -31,7 +33,8 @@ class JobsController < ApplicationController
   end
 
   def list
-    @jobs = Job.all
+    binding.pry
+    @jobs = Job.where(user_id: @current_user.id)
     render :json => @jobs
   end
 

@@ -41,7 +41,7 @@ class LogInPage extends React.Component {
 
     return (
       <div>
-        {this.state.redirect ? <Redirect to="/user/listings" />: null}
+        {this.state.redirect ? <Redirect to="/user/listings" /> : null}
         <h1>Login:</h1>
         <TextInput
           name="email"
