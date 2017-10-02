@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import SearchForm from './SearchForm';
-import JobCard from './JobCard';
+import UserCard from './JobCard';
 
 class UserPage extends React.Component {
   constructor(props) {
@@ -29,8 +28,8 @@ class UserPage extends React.Component {
   render() {
 
   const renderUserCard =
-      this.state.firstJobs.map(job =>
-        <JobCard job={job} key={job.cacheId} />)
+      this.state.userInfo.map(job =>
+        <UserCard user={user} key={user.id} />)
 
     return (
       <div>
@@ -41,11 +40,5 @@ class UserPage extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return ({
-    jobs: state.jobs,
-    searchExecuted: state.searchExecuted
-  })
-}
 
-export default connect(mapStateToProps)(JobsShow);
+export default UserPage;
