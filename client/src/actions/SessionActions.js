@@ -1,14 +1,14 @@
 import sessionApi from '../api/SessionApi';
 
-export function logInSuccess() {
-  return {type: 'LOG_IN_SUCCESS' }
+export function logInSuccess(data) {
+  return {type: 'LOG_IN_SUCCESS', data: data }
 }
 
 export function logInUser(credentials) {
   return function(dispatch) {
     return sessionApi.login(credentials).then(response => {
       sessionStorage.setItem('jwt', response.jwt);
-      dispatch(logInSuccess());
+      dispatch(logInSuccess(credentials));
     }).catch(error => {
       throw(error);
     });

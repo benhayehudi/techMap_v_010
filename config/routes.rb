@@ -19,5 +19,5 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  get '/api/user/index' => 'sessions#create'
+  get '/api/user/index' => 'sessions#index'
 end

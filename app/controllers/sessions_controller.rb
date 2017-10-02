@@ -5,6 +5,11 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:email])
   end
 
+  def index
+    @user = User.find_by(email: request.headers["email"])
+    render json: @user
+  end
+
   def create
     command = AuthenticateUser.call(params[:auth][:email], params[:auth][:password])
     if command.success?
@@ -19,9 +24,4 @@ class SessionsController < ApplicationController
     redirect_to new_session_path
   end
 
-  private
-
-  def current_user
-    @current_user ||= User.find_by(email: params[:auth][:email])
-  end
 end

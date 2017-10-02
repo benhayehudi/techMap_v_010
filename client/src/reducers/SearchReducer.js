@@ -5,7 +5,8 @@ let initialState = {
     savedJobs: [],
     finishedLoading: false,
     searchExecuted: false,
-    session: false
+    session: false,
+    userInfo: []
 }
 
 function SearchReducer(state = initialState, action) {
@@ -38,7 +39,8 @@ function SearchReducer(state = initialState, action) {
             });
         case 'LOG_IN_SUCCESS':
             return Object.assign({}, state, {
-                session: true
+                session: true,
+                userInfo: action.data.email
             })
         case 'LOG_OUT':
             browserHistory.push('/')
