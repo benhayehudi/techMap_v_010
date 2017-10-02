@@ -13,6 +13,7 @@ import JobsShow from './components/containers/JobsShow';
 import JobsList from './components/containers/JobsList';
 import LogInPage from './components/containers/LogInPage';
 import SignUpPage from './components/containers/SignUpPage';
+import UserPage from './components/containers/UserPage';
 
 const ReactRouter = () => (
   <Router>
@@ -26,6 +27,7 @@ const ReactRouter = () => (
         <Route exact path="/login" component={LogInPage}/>
         <Route exact path="/registrations/new" component={SignUpPage}/>
         <Route exact path="/user/listings" component={JobsList}/>
+        <Route exact parh="/user/index" component={UserPage}/>
         <Route exact path="/about" component={About}/>
         <Route exact path="/contact" component={Contact}/>
       </Switch>

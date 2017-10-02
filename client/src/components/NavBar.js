@@ -31,7 +31,7 @@ class navbarInstance extends React.Component {
               <Navbar.Collapse>
               <Nav>
                 <NavDropdown eventKey={2} title="My Account" id ="basic-nav-dropdown">
-                  <LinkContainer to="/user/acount">
+                  <LinkContainer to="/user/index">
                     <MenuItem eventKey={2.1}>Manage Account</MenuItem>
                   </LinkContainer>
                   <LinkContainer to="/user/listings">
