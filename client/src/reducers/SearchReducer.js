@@ -37,7 +37,6 @@ function SearchReducer(state = initialState, action) {
                 savedJobs: newJobsState
             });
         case 'LOG_IN_SUCCESS':
-            alert("Welcome back!")
             return Object.assign({}, state, {
                 session: true
             })
