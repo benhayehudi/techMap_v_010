@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "proxy": "http://localhost:3001/",
+  "proxy": "https://thawing-depths-76952.herokuapp.com/",
   "private": true,
   "dependencies": {
     "react": "^15.6.1",
