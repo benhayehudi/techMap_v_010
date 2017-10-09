@@ -39,7 +39,7 @@ export function getSavedJobs() {
                 'Authorization': `${sessionStorage.jwt}`
             }
         };
-        fetch('http://localhost:3001/api/jobs/list', request)
+        fetch('/api/jobs/list', request)
             .then(response => response.json())
             .then(data => dispatch({ type: 'GET_SAVED_JOBS', data: data }))
     })
