@@ -3,7 +3,6 @@ import React from 'react';
 class UserCard extends React.Component {
 
   render() {
-    console.log("HELLO!!")
     return (
   <div className="UserCardBox">
     <div className={this.props.user.id}>

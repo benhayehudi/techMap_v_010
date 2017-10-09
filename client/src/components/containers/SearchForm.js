@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormControl, FormGroup} from 'react-bootstrap';
+import {FormControl, FormGroup, Col} from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { updateJobs } from '../../actions/SearchActions';
@@ -32,6 +32,7 @@ class SearchForm extends React.Component {
     <div className="col-lg-12">
       <div className="col-lg-offset-lg-4">
         <form onSubmit={(event) => this.onSubmit(event)}>
+          <Col smOffset={3} sm={6}>
           <FormGroup
           controlId="formBasicText" onSubmit={(event) => this.onSubmit(event)}>
             <h1>Search For A Job:</h1>
@@ -41,6 +42,7 @@ class SearchForm extends React.Component {
               placeholder="Enter text"
               onChange={(event) => this.onChange(event)} />
         </FormGroup>
+        </Col>
       </form>
     </div>
   </div>
