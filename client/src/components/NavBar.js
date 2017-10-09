@@ -68,10 +68,10 @@ class navbarInstance extends React.Component {
                   <NavItem eventKey={2}>Login</NavItem>
                 </LinkContainer>
                 <LinkContainer to="/about">
-                  <NavItem eventKey={4}>About</NavItem>
+                  <NavItem eventKey={3}>About</NavItem>
                 </LinkContainer>
                 <LinkContainer to="/contact">
-                  <NavItem eventKey={5}>Contact</NavItem>
+                  <NavItem eventKey={4}>Contact</NavItem>
                 </LinkContainer>
               </Nav>
             </Navbar.Collapse>
