@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addLike } from '../../actions/LikeActions';
+import { addLike, deleteJob } from '../../actions/LikeActions';
+import { getSavedJobs } from '../../actions/SearchActions';
+
 
 class JobListCard extends React.Component {
   constructor(props) {
@@ -17,6 +19,13 @@ class JobListCard extends React.Component {
     var likeData = {cacheId, likes}
 
     this.props.addLike(likeData, cacheId);
+  }
+
+  deleteJob = () => {
+    var cacheId = this.props.job.cacheId
+
+    this.props.deleteJob(cacheId);
+    this.props.getSavedJobs
   }
 
   componentDidMount() {
@@ -45,6 +54,7 @@ class JobListCard extends React.Component {
       <p>{this.props.job.snippet}</p>
       <br />
       <button className="btn btn-primary" onClick={this.onClick}>Like</button>&nbsp;<span className="LikeNumber">{this.props.job.likes}</span>
+      <button className="btn btn-primary" onClick={this.deleteJob}>Delete</button>
     </div>
     <br />
   </div>
@@ -53,4 +63,4 @@ class JobListCard extends React.Component {
 }
 
 
-export default connect(null, { addLike })(JobListCard);
+export default connect(null, { addLike, deleteJob })(JobListCard);

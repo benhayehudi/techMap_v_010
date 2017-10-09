@@ -6,7 +6,8 @@ let initialState = {
     finishedLoading: false,
     searchExecuted: false,
     session: false,
-    userInfo: []
+    userInfo: [],
+    jobDeleted: false
 }
 
 function SearchReducer(state = initialState, action) {
@@ -37,6 +38,10 @@ function SearchReducer(state = initialState, action) {
             return Object.assign({}, state, {
                 savedJobs: newJobsState
             });
+        case 'DELETE_JOB':
+        return Object.assign({}, state, {
+            jobDeleted: true
+        })
         case 'LOG_IN_SUCCESS':
             return Object.assign({}, state, {
                 session: true,

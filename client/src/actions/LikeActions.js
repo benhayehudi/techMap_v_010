@@ -30,3 +30,22 @@ export function getLikes(cacheId) {
     .then(data => dispatch({ type: 'GET_LIKES', data: data.likes }))
   }
 )}
+
+export function deleteJob(cacheId) {
+  return (dispatch => {
+
+  const request = {
+    method: 'delete',
+    headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'Authorization': `${sessionStorage.jwt}`
+    },
+    body: JSON.stringify(cacheId)
+  };
+
+  fetch('/api/jobs/' + (cacheId), request)
+    .then(data => data.json())
+    .then(data => dispatch({ type: 'DELETE_JOB', data: data }))
+  }
+)}

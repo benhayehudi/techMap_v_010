@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post '/api/jobs/new' => 'jobs#create'
   get '/api/jobs/:cacheId' => 'jobs#show'
   post '/api/jobs/:cacheId' => 'jobs#update'
+  delete '/api/jobs/:cacheId' => 'jobs#destroy'
 
   resources :users
   mount Knock::Engine => "/knock"

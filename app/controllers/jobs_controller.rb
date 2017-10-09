@@ -1,7 +1,7 @@
 require 'pry'
 
 class JobsController < ApplicationController
-  before_action :authenticate_request, only: [:list, :create]
+  before_action :authenticate_request, only: [:list, :create, :destroy]
 
   def index
     @results = GoogleCustomSearchApi.search("tech jobs in nyc")
@@ -35,6 +35,13 @@ class JobsController < ApplicationController
 
   def list
     @jobs = Job.where(user_id: @current_user.id)
+    render :json => @jobs
+  end
+
+  def destroy
+    @jobs = Job.where(user_id: @current_user.id)
+    @job = Job.find_by(cacheId: params[:cacheId])
+    @job.destroy
     render :json => @jobs
   end
 
