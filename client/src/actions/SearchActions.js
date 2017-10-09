@@ -20,6 +20,7 @@ export function addJob(jobData) {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
+                'Authorization': `${sessionStorage.jwt}`
             },
             body: JSON.stringify(jobData)
         };

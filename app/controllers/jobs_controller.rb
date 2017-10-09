@@ -1,7 +1,7 @@
 require 'pry'
 
 class JobsController < ApplicationController
-  before_action :authenticate_request, only: [:list]
+  before_action :authenticate_request, only: [:list, :create]
 
   def index
     @results = GoogleCustomSearchApi.search("tech jobs in nyc")
@@ -9,6 +9,7 @@ class JobsController < ApplicationController
   end
 
   def create
+    params[:user_id] = @current_user.id
     @job = Job.new(job_params)
     if @job.save
       render :json => @job
@@ -40,6 +41,6 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.permit(:cacheId, :title, :link, :snippet, :likes)
+    params.permit(:cacheId, :title, :link, :snippet, :likes, :user_id)
   end
 end
