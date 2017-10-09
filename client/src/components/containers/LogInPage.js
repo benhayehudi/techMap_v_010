@@ -43,22 +43,24 @@ class LogInPage extends React.Component {
       <div>
         {this.state.redirect ? <Redirect to="/user/listings" /> : null}
         <h1>Login:</h1>
-        <TextInput
-          name="email"
-          label="email"
-          value={this.state.credentials.email}
-          onChange={this.onChange}/>
+        <form onSubmit={this.onSave}>
+          <TextInput
+            name="email"
+            label="email"
+            value={this.state.credentials.email}
+            onChange={this.onChange}/>
 
-        <TextInput
-          name="password"
-          label="password"
-          type="password"
-          value={this.state.credentials.password}
-          onChange={this.onChange}/>
+          <TextInput
+            name="password"
+            label="password"
+            type="password"
+            value={this.state.credentials.password}
+            onChange={this.onChange}/>
 
-        <input type="submit"
-          className="btn btn-primary"
-          onClick={this.onSave}/>
+          <input type="submit"
+            className="btn btn-primary"
+            onClick={this.onSave}/>
+        </form>
 
         <br /><br />
         <h1>New?</h1> <h1><a href="/registrations/new">Sign up!</a></h1>
