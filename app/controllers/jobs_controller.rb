@@ -33,7 +33,6 @@ class JobsController < ApplicationController
   end
 
   def list
-    binding.pry
     @jobs = Job.where(user_id: @current_user.id)
     render :json => @jobs
   end

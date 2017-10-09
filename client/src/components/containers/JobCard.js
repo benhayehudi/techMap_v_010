@@ -30,7 +30,8 @@ class JobCard extends React.Component {
   <div className="JobCardBox">
     <div className={this.props.job.cacheId}>
       <h3><a href={this.props.job.link}>{this.props.job.title}</a></h3>
-      <button className="btn btn-primary" onClick={() => this.onClick()} data-cacheId={this.props.job.cacheId} data-link={this.props.job.link} data-title={this.props.job.title} data-snippet={this.props.job.snippet}>Save</button>
+      { this.props.logged_in ?
+      <button className="btn btn-primary" onClick={() => this.onClick()} data-cacheId={this.props.job.cacheId} data-link={this.props.job.link} data-title={this.props.job.title} data-snippet={this.props.job.snippet}>Save</button> : null }
       <p>{this.props.job.snippet}</p>
     </div>
   </div>
@@ -44,7 +45,8 @@ const mapStateToProps = (state) => {
     title: state.title,
     link: state.link,
     snippet: state.snippet,
-    cacheId: state.cacheId
+    cacheId: state.cacheId,
+    logged_in: state.session
   })
 }
 
