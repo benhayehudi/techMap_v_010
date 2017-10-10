@@ -2,16 +2,18 @@ import React, {PropTypes} from 'react';
 import TextInput from '../TextInput';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
+import {Redirect} from 'react-router-dom';
 import * as sessionActions from '../../actions/SessionActions';
 
 class SignUpPage extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { 
+    this.state = {
       credentials: {
         email: '',
-        password: ''
+        password: '',
+        redirect: false
       }
     }
     this.onChange = this.onChange.bind(this);
@@ -28,6 +30,7 @@ class SignUpPage extends React.Component {
   onSave(event) {
     event.preventDefault();
     this.props.actions.createNewUser(this.state.credentials);
+    this.setState({redirect: true})
   }
 
   componentDidMount() {
@@ -38,6 +41,7 @@ class SignUpPage extends React.Component {
 
     return (
       <div>
+      {this.state.redirect ? <Redirect to="/login" /> : null}
         <h1>Sign Up:</h1>
         <TextInput
           name="email"
