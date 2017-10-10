@@ -21,7 +21,7 @@ class SessionApi {
 
   static newUser(credentials) {
 
-    const request = new Request('/user_token', {
+    const request = new Request('/registrations/new', {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json'

@@ -1,6 +1,3 @@
-# require 'securerandom'
-require 'pry'
-
 class RegistrationsController < ApplicationController
   skip_before_action :authenticate_request
 
@@ -40,6 +37,6 @@ class RegistrationsController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:auth => [:email, :password])
   end
 end
