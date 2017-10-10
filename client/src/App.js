@@ -27,9 +27,9 @@ const ReactRouter = () => (
         <Route exact path="/login" component={LogInPage}/>
         <Route exact path="/registrations/new" component={SignUpPage}/>
         <Route exact path="/user/listings" component={JobsList}/>
-        <Route exact parh="/user/index" component={UserPage}/>
         <Route exact path="/about" component={About}/>
         <Route exact path="/contact" component={Contact}/>
+        <Route exact parh="/user/index" component={UserPage}/>
       </Switch>
     </div>
   </Router>
