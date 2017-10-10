@@ -47,6 +47,11 @@ function SearchReducer(state = initialState, action) {
                 session: true,
                 userInfo: action.data.email
             })
+        case 'NEW_USER_SUCCESS':
+            return Object.assign({}, state, {
+                session: true,
+                userInfo: action.data.email
+            })
         case 'LOG_OUT':
             browserHistory.push('/')
             return !!sessionStorage.jwt

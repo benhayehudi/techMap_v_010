@@ -19,7 +19,7 @@
       end
     end
 
-    
+
     def create
       render json: { jwt: auth_token.token }, status: :created
     end

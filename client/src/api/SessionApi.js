@@ -21,11 +21,10 @@ class SessionApi {
 
   static newUser(credentials) {
 
-    const request = new Request('http://localhost:3000/knock/auth_token', {
+    const request = new Request('http://localhost:3000/user_token', {
       method: 'POST',
       headers: new Headers({
-        'Content-Type': 'application/json',
-        'AUTHORIZATION': `Bearer ${sessionStorage.jwt}`
+        'Content-Type': 'application/json'
       }),
       body: JSON.stringify({auth: credentials})
     });

@@ -8,7 +8,7 @@ class SignUpPage extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {
+    this.state = { 
       credentials: {
         email: '',
         password: ''
